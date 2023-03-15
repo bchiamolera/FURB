@@ -1,3 +1,8 @@
+/*
+Descreva um programa que calcule o volume de uma lata de óleo. Fórmula:
+volume = pi * raio² * altura
+ */
+
 import java.util.Scanner;
 
 public class Uni3Exe09 {
