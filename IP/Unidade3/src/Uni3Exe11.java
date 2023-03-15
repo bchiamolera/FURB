@@ -6,7 +6,7 @@ public class Uni3Exe11 {
 
         System.out.println("Insira a temperatura (°C):");
         Double tempCelsius = teclado.nextDouble();
-        Double tempFahrenheit = (9 * tempCelsius) / 5  + 32.0;
+        Double tempFahrenheit = (9.0 * tempCelsius) / 5.0  + 32.0;
         System.out.println("A temperatura é:" + tempFahrenheit + "°F.");
 
         teclado.close();
