@@ -9,7 +9,7 @@ public class Uni3Exe14 {
         System.out.println("Insira o tempo do trajeto (h)):");
         Double tempo = teclado.nextDouble();
         Double velocidadeMedia = distancia * tempo;
-        Double combustivelGasto = distancia / 12;
+        Double combustivelGasto = distancia / 12.0;
         System.out.println("A velocidade média da viagem foi de " + velocidadeMedia + " km/h.");
         System.out.println("A quantidade de combustível gasto foi de " + combustivelGasto + " L.");
         teclado.close();
