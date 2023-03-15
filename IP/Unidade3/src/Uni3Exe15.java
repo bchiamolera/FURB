@@ -10,9 +10,9 @@ public class Uni3Exe15 {
         int dezena = 0;
         int unidade = 0;
 
-        centena = numero / 100;
-        dezena = (numero - 100 * centena) / 10;
-        unidade = (numero - 100 * centena - 10 * dezena);
+        centena = numero / 100.0;
+        dezena = (numero - 100.0 * centena) / 10.0;
+        unidade = (numero - 100.0 * centena - 10.0 * dezena);
         System.out.println(centena + " centena(s), " + dezena + " dezena(s), " + unidade + " unidade(s).");
 
         teclado.close();
