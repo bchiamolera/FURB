@@ -1,3 +1,10 @@
+/*
+Descreva um programa que leia o comprimento dos catetos de um
+    triângulo retângulo e calcule o comprimento da hipotenusa.
+Fórmula:
+hipotenusa² = cateto1² + cateto2²
+ */
+
 import java.util.Scanner;
 
 public class Uni3Exe10 {
