@@ -11,9 +11,9 @@ public class Uni3Exe16 {
         int moedasUm = 0;
         int numeroNotas = 0;
 
-        notasCem = valorTroco / 100;
-        notasDez = (valorTroco - 100 * notasCem) / 10;
-        moedasUm = valorTroco - 100 * notasCem - 10 * notasDez;
+        notasCem = valorTroco / 100.0;
+        notasDez = (valorTroco - 100.0 * notasCem) / 10.0;
+        moedasUm = valorTroco - 100.0 * notasCem - 10.0 * notasDez;
         numeroNotas = notasCem + notasDez + moedasUm;
 
         System.out.println("\n" + numeroNotas + " notas serão devolvidas.");
