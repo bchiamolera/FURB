@@ -9,7 +9,7 @@ public class Uni3Exe02 {
         Double valorDesconto = precoCheio * 0.12;
         Double precoDesconto = precoCheio - valorDesconto;
         System.out.println("O valor do desconto é de R$" + valorDesconto);
-        System.out.println("O preço do par de sapatos com desconto é de R$" + precoDesconto);
+        System.out.println("O preço do par de sapatos com desconto é R$" + precoDesconto);
         
         teclado.close();
     }
