@@ -20,7 +20,6 @@ public class Uni3Uri1010 {
         double quantidadeDois = Double.parseDouble(produtoDoisSeparado[1]);
         double precoDois = Double.parseDouble(produtoDoisSeparado[2]);
 
-
         double valorPagar = (quantidadeUm * precoUm) + (quantidadeDois * precoDois);
 
         System.out.println("VALOR A PAGAR: R$ " + df_2.format(valorPagar));
