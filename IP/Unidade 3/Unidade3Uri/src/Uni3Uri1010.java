@@ -6,7 +6,6 @@ public class Uni3Uri1010 {
         Scanner teclado = new Scanner(System.in);
         DecimalFormat df_2 = new DecimalFormat("0.00");
 
-
         String produtoUm = teclado.nextLine();
         String produtoDois = teclado.nextLine();
         String[] produtoUmSeparado = produtoUm.split(" ");
