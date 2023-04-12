@@ -37,7 +37,7 @@ public class Uni4Exe18 {
             System.out.println("Valor do desconto = R$" + df_02.format(desconto));
             System.out.println("Valor total = R$" + df_02.format(total));
         } else if (atraso > 0 && atraso <= 5) {
-            System.out.println("A prestação está " + atraso + " dias atrasada.");
+            System.out.println("A prestação está " + atraso + " dia(s) atrasada.");
             System.out.println("Valor da prestação = R$" + df_02.format(valorPrestacao));
         } else {
             total = valorPrestacao + multa;
