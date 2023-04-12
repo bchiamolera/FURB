@@ -24,28 +24,20 @@ dão com intervalo não superior a 24 horas, e sempre chegam e saem no mesmo dia
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
-public class Uni4Exe27 {
+public class Main {
     public static void main(String[] args) throws Exception {
         Scanner teclado = new Scanner(System.in);
         DecimalFormat df_02 = new DecimalFormat("0.00");
 
         System.out.println("Escolha o horário de chegada (Ex.: 12 50): ");
-        String horaChegada = teclado.nextLine();
         int horaChegada = teclado.nextInt();
+        int minutosChegada = teclado.nextInt();
+        int totalChegada = horaChegada * 60 + minutosChegada;
+
         System.out.println("Escolha o horário de saída: (Ex: 20 10)");
-        String horaSaida = teclado.nextLine();
-        int horaSaida - teclado.nextInt();
-
-        String conv1[] = horaChegada.split(" ");
-        String conv2[] = horaSaida.split(" ");
-
-        int horasEmMinChegada = Integer.parseInt(conv1[0]) * 60;
-        int minutosChegada = Integer.parseInt(conv1[1]);
-        int totalChegada = horasEmMinChegada + minutosChegada;
-
-        int horasEmMinSaida = Integer.parseInt(conv2[0]) * 60;
-        int minutosSaida = Integer.parseInt(conv2[1]);
-        int totalSaida = horasEmMinSaida + minutosSaida;
+        int horaSaida = teclado.nextInt();
+        int minutosSaida = teclado.nextInt();
+        int totalSaida = horaSaida * 60 + minutosSaida;
 
         if (totalChegada >= 0 && totalSaida <= 1439 && totalSaida > totalChegada) {
             int tempoTotal = totalSaida - totalChegada;
