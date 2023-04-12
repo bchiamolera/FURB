@@ -31,8 +31,10 @@ public class Uni4Exe27 {
 
         System.out.println("Escolha o horário de chegada (Ex.: 12 50): ");
         String horaChegada = teclado.nextLine();
+        int horaChegada = teclado.nextInt();
         System.out.println("Escolha o horário de saída: (Ex: 20 10)");
         String horaSaida = teclado.nextLine();
+        int horaSaida - teclado.nextInt();
 
         String conv1[] = horaChegada.split(" ");
         String conv2[] = horaSaida.split(" ");
@@ -47,10 +49,8 @@ public class Uni4Exe27 {
 
         if (totalChegada >= 0 && totalSaida <= 1439 && totalSaida > totalChegada) {
             int tempoTotal = totalSaida - totalChegada;
-
-            System.out.println(tempoTotal);
-
             int tarifa = 0;
+            
             if (tempoTotal < 30) {
                 tarifa = 0;
             } else if (tempoTotal >= 30 && tempoTotal < 150) {
@@ -62,9 +62,6 @@ public class Uni4Exe27 {
             }
 
             int horasTotal = tempoTotal / 60;
-
-            System.out.println(horasTotal);
-
             int minutosTotal = tempoTotal % 60;
             Double preçoTarifa = 0.0;
             Double valorTotal = 0.0;
