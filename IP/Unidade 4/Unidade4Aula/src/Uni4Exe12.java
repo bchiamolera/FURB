@@ -31,6 +31,8 @@ public class Uni4Exe12 {
             } else {
                 System.out.println("É escaleno");
             }
+        } else {
+            System.out.println("Não é triângulo");
         }
         teclado.close();
     }
