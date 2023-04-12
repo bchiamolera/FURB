@@ -89,37 +89,37 @@ public class Uni4Exe27 {
                     }
                     System.out.println("Tempo estacionado: " + horasTotal + "h " + minutosTotal + "min");
                     System.out.println("Tempo cobrado: " + horaCobrada + "h " + "00min");
-                    System.out.println("Preço Tarifa = R$5.00 / h");
+                    System.out.println("Preço Tarifa = R$5.00 / h (1ª e 2ª hora)");
                     System.out.println("Valor total = R$" + df_02.format(valorTotal));
                     break;
                 }
                 case 2: {
                     preçoTarifa = 7.5;
                     if (minutosTotal >= 30) {
-                        valorTotal = (horasTotal + 1) * preçoTarifa;
+                        valorTotal = 10 + (horasTotal + 1 - 2) * preçoTarifa;
                         horaCobrada = horasTotal + 1;
                     } else {
-                        valorTotal = horasTotal * preçoTarifa;
+                        valorTotal = 10 + (horasTotal - 2) * preçoTarifa;
                         horaCobrada = horasTotal;
                     }
                     System.out.println("Tempo estacionado: " + horasTotal + "h " + minutosTotal + "min");
                     System.out.println("Tempo cobrado: " + horaCobrada + "h " + "00min");
-                    System.out.println("Preço Tarifa = R$7.50 / h");
+                    System.out.println("Preço Tarifa = R$10 + R$7.50 / h (3ª e 4ª hora)");
                     System.out.println("Valor total = R$" + df_02.format(valorTotal));
                     break;
                 }
                 case 3: {
                     preçoTarifa = 10.0;
                     if (minutosTotal >= 30) {
-                        valorTotal = (horasTotal + 1) * preçoTarifa;
+                        valorTotal = 25 + (horasTotal + 1 - 4) * preçoTarifa;
                         horaCobrada = horasTotal + 1;
                     } else {
-                        valorTotal = horasTotal * preçoTarifa;
+                        valorTotal = 25 + (horasTotal - 4) * preçoTarifa;
                         horaCobrada = horasTotal;
                     }
                     System.out.println("Tempo estacionado: " + horasTotal + "h " + minutosTotal + "min");
                     System.out.println("Tempo cobrado: " + horaCobrada + "h " + "00min");
-                    System.out.println("Preço Tarifa = R$10.00 / h");
+                    System.out.println("Preço Tarifa = R$25.00 + R$10.00 / h (5ª hora)");
                     System.out.println("Valor total = R$" + df_02.format(valorTotal));
                     break;
                 }
