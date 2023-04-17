@@ -43,9 +43,7 @@ public class Main {
             int tempoTotal = totalSaida - totalChegada;
             int tarifa = 0;
             
-            if (tempoTotal < 30) {
-                tarifa = 0;
-            } else if (tempoTotal >= 30 && tempoTotal < 150) {
+        if (tempoTotal < 150) {
                 tarifa = 1;
             } else if (tempoTotal >= 150 && tempoTotal < 270) {
                 tarifa = 2;
@@ -60,13 +58,6 @@ public class Main {
             int horaCobrada = 0;
 
             switch (tarifa) {
-                case 0: {
-                    System.out.println("Tempo estacionado: " + horasTotal + "h " + minutosTotal + "min");
-                    System.out.println("Tempo cobrado: " + horaCobrada + "h " + "00min");
-                    System.out.println("Preço Tarifa = R$0.00 / h");
-                    System.out.println("Valor total = R$0.00");
-                    break;
-                }
                 case 1: {
                     preçoTarifa = 5.0;
                     if (minutosTotal >= 30) {
