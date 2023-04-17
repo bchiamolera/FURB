@@ -60,7 +60,7 @@ public class Main {
             switch (tarifa) {
                 case 1: {
                     preçoTarifa = 5.0;
-                    if (minutosTotal >= 30) {
+                    if ((minutosTotal < 30 && horasTotal == 0) || minutosTotal >= 30) {
                         valorTotal = (horasTotal + 1) * preçoTarifa;
                         horaCobrada = horasTotal + 1;
                     } else {
@@ -107,7 +107,6 @@ public class Main {
                     System.out.println("Valor(es) inválido(s)");
                 }
             }
-
         } else {
             System.out.println("Valor(es) inválido(s)");
         }
