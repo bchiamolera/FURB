@@ -3,7 +3,7 @@
  3/2 + 5/6 + 7/12 + 9/20 + 11/30 + ...
  Considere os 20 primeiros termos da série.
  */
-public class Uni5Exe4 {
+public class Uni5Exe04 {
     public static void main(String[] args) {
         int contador;
         double num1, num2, somaPar, total;

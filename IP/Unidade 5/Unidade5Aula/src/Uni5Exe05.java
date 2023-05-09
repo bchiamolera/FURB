@@ -4,7 +4,7 @@ Descreva um algoritmo que escreva os n primeiros termos da seguinte sequência d
 O valor n deve ser lido e deve ser maior do que 2.
 */
 import java.util.Scanner;
-public class Uni5Exe5 {
+public class Uni5Exe05 {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         int contador, numInput, num1, num2;

@@ -4,7 +4,7 @@
 - escreva a quantidade de alunos que tem idade acima de 20 anos.
  */
 import java.util.Scanner;
-public class Uni5Exe9 {
+public class Uni5Exe09 {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         int n, alunoIdade, alunosMaiores20Anos, contador;

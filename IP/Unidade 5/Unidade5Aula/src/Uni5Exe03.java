@@ -2,7 +2,7 @@
  Descreva um algoritmo que calcule e escreva a soma da seguinte série de 100 termos:
  1/1 + 1/2 + 1/3 + 1/4 + ... + 1/100
  */
-public class Uni5Exe3 {
+public class Uni5Exe03 {
     public static void main(String[] args) {
         double num, soma;
         soma = 0.0;

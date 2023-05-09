@@ -2,7 +2,7 @@
 Descreva um algoritmo que calcule e escreva a soma dos números
 pares e a soma dos números ímpares entre 1 e 100.
  */
-public class Uni5Exe2 {
+public class Uni5Exe02 {
     public static void main(String[] args) {
         int num, somaPar, somaImpar;
         somaPar = 0;
