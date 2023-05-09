@@ -7,20 +7,30 @@ solicitar ao usuário que digite a quantidade de meses que o funcionário foi ad
  */
 
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
-public class Uni4Exe15 {
+public class Main {
     public static void main(String[] args) throws Exception {
         Scanner teclado = new Scanner(System.in);
+        DecimalFormat df_2 = new DecimalFormat("0.00");
 
         System.out.println("Informe há quantos meses o funcionário foi admitido:");
         int meses = teclado.nextInt();
-
+        System.out.println("Informe o salário do funcionário:");
+        double salario = teclado.nextDouble();
+        double reajuste = 0;
+        
         if (meses < 49) {
             if (meses < 13) {
                 System.out.println("Reajuste de 5%");
+                reajuste = salario * 0.05;
             } else {
                 System.out.println("Reajuste de 7%");
+                reajuste = salario * 0.07;
             }
+            salario = salario + reajuste;
+            System.out.println("Valor do reajuste = R$" + df_2.format(reajuste));
+            System.out.println("Valor do novo salário = R$" + df_2.format(salario));
         } else {
             System.out.println("Sem reajuste.");
         }

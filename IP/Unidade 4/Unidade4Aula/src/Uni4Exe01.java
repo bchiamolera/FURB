@@ -8,7 +8,7 @@ deverá ser acrescido das horas extras, caso tenham sido trabalhadas
 (considere que o mês possua 4 semanas exatas).
  */
 
- import java.util.Scanner;
+import java.util.Scanner;
 
 public class Uni4Exe01 {
     public static void main(String[] args) throws Exception {
@@ -22,7 +22,7 @@ public class Uni4Exe01 {
 
         double salarioTotal = horasMes * horasValor;
 
-        if(horasMes > 160){
+        if (horasMes > 160) {
             double salarioExtra = (horasMes - 160) * (horasValor / 2);
             salarioTotal = salarioTotal + salarioExtra;
         }

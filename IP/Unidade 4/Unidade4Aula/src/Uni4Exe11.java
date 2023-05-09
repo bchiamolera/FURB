@@ -19,7 +19,7 @@ public class Uni4Exe11 {
         System.out.println("Informe o ano de nascimento do terceiro irmão: ");
         int anoTerceiro = teclado.nextInt();
 
-        if (anoPrimeiro == anoSegundo && anoPrimeiro == anoTerceiro && anoSegundo == anoTerceiro) {
+        if (anoPrimeiro == anoSegundo && anoPrimeiro == anoTerceiro) {
             System.out.println("São trigêmeos.");
         } else if (anoPrimeiro == anoSegundo || anoPrimeiro == anoTerceiro || anoSegundo == anoTerceiro) {
             System.out.println("Dois são gêmeos.");

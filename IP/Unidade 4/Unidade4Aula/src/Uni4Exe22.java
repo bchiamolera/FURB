@@ -28,7 +28,7 @@ public class Uni4Exe22 {
                 break;
             }
             case 2: {
-                System.out.println("Licensiado em Computação.");
+                System.out.println("Licenciado em Computação.");
                 break;
             }
             case 3: {

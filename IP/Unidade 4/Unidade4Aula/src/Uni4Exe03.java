@@ -10,9 +10,9 @@ public class Uni4Exe03 {
 
         System.out.println("Entre com dois valores:");
         System.out.println("Valor 1:");
-        double numUm = teclado.nextDouble();
+        int numUm = teclado.nextInt();
         System.out.println("Valor 2:");
-        double numDois = teclado.nextDouble();
+        int numDois = teclado.nextInt();
 
         if (numUm > numDois) {
             System.out.println(numUm + " é maior que " + numDois);

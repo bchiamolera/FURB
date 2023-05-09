@@ -30,7 +30,7 @@ public class Uni4Exe14 {
                 System.out.println("É inválida.");
             }
         } else {
-            System.out.println("Não válida.");
+            System.out.println("É inválida.");
         }
 
         teclado.close();
