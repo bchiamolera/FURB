@@ -17,9 +17,7 @@ public class Uni5Exe23 {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         DecimalFormat df_02 = new DecimalFormat("0.00");
-
         int op = 0;
-
         while (op == 0) {
             char opTxt = 'a';
             String nome = "", salario = "";
