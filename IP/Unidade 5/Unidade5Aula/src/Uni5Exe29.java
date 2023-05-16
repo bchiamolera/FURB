@@ -6,7 +6,7 @@
  */
 
  import java.util.Scanner;
-public class Uni5Exe28 {
+public class Uni5Exe29 {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         int valor = 0;
