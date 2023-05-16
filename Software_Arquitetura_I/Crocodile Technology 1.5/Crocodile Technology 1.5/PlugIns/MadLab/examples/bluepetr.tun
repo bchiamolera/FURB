@@ -1,0 +1,71 @@
+;**************************************************************************
+;** 'Blue Peter' Theme Tune - "bluepetr.tun" ******************************
+;**************************************************************************
+
+; 60 instructions
+
+
+          start BluePeter
+
+          tempo 1
+
+blue1     note C2,1,0
+          note B1,1,0
+          note C2,2,0
+          note C1,2,0
+          note C1,2,0
+          note G1,1,0
+          note F1,1,0
+          note E1,1,0
+          note G1,1,0
+          note C2,1,0
+          note B1,1,0
+          note C2,2,0
+          note D2,1,0
+          note C2,1,0
+          note D2,2,0
+          note D1,2,0
+          note D1,2,0
+          note D1,1,0
+          note C1,1,0
+          octave -1
+          note B1,1,0
+          octave +1
+          note D1,1,0
+          note G1,2,0
+          note G1,2,0
+          note A1,1,0
+          note B1,1,0
+          note C2,1,0
+          note B1,1,0
+          note A1,1,0
+          note G1,1,0
+          note A1,1,0
+          note G1,1,0
+          note F1,1,0
+          note E1,1,0
+          note F1,1,0
+          note E1,1,0
+          note D1,1,0
+          note C1,1,0
+          note C1,1,0
+          octave -1
+          note B1,1,0
+          note A1,1,0
+          note G1,1,0
+          note A1,1,0
+          note C2,1,0
+          note B1,1,0
+          octave +1
+          note D1,1,0
+          note C1,1,0
+          note E1,1,0
+          note D1,1,0
+          note F1,1,0
+          note E1,2,0
+          note C1,2,0
+          note C1,4,0
+          rest 4
+
+          tune blue1
+

@@ -1,0 +1,6 @@
+	MOV 00,A;
+LOOP:
+	MOV A,OUT3;
+	INC A,A;
+
+	JMP LOOP; 

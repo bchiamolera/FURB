@@ -1,0 +1,52 @@
+;**************************************************************************
+;** 'Scotland The Brave' - "thebrave.tun" *********************************
+;**************************************************************************
+
+; 37 instructions
+
+
+          start TheBrave
+
+          tempo 0
+
+          tune brave1
+
+          note G1,3,0
+          note A1,1,0
+          note G1,4,0
+          note G1,4,0
+
+          tune brave1
+
+          note C1,3,0
+          note D1,1,0
+          note C1,4,0
+          note C1,4,0
+
+          stop
+
+brave1    note C1,3,1
+          note C1,3,0
+          note D1,1,0
+          note E1,2,0
+          note C1,2,0
+          note E1,2,0
+          note G1,2,0
+          note C2,3,1
+          note C2,3,0
+          note B1,1,0
+          note C2,2,0
+          note G1,2,0
+          note E1,2,0
+          note C1,2,0
+          note F1,4,0
+          note A1,3,0
+          note F1,1,0
+          note E1,2,0
+          note G1,2,0
+          note E1,2,0
+          note C1,2,0
+          note D1,4,0
+
+          stop
+
