@@ -14,8 +14,10 @@ public class Uni6Exe08 {
     public Uni6Exe08() {
         Scanner teclado = new Scanner(System.in);
         double[] vetor = new double[LerN(teclado)];
+
         Ler(teclado, vetor);
-        Escrever(vetor);
+        Contar(vetor, Unico(vetor));
+
         teclado.close();
     }
 
@@ -30,47 +32,40 @@ public class Uni6Exe08 {
 
     private void Ler(Scanner teclado, double[] vetor) {
         System.out.println();
-        for (int i = 0; i  < vetor.length; i++) {
+        for (int i = 0; i < vetor.length; i++) {
             System.out.println("Informe o " + (i + 1) + "º número: ");
             vetor[i] = teclado.nextDouble();
         }
     }
 
-    private void RemoverRepetições(double[] vetor2) {
-        int contarNums = 0;
-        for (int i = 0; i < vetor2.length; i++) {
-            for (int j = i + 1; j < vetor2.length; i++) {
-                if (vetor2[i] != vetor2[j]) {
-                    contarNums++;
-                }
-            }
-        }
-        double[] vetorSemRepetir = new double[contarNums];
-
-    }
-
-    private double[] Organizar(double[] vetor) {
-        double[] vetor2 = new double[vetor.length];
+    private double[] Unico(double[] vetor) {
+        double[] vetorUnico = new double[vetor.length];
+        int index = 0;
         for (int i = 0; i < vetor.length; i++) {
-            vetor2[i] = vetor[i];
-        }
-        double temp = 0;
-        for (int i = 0; i < vetor2.length; i++) {
-            for (int j = 0; j < vetor2.length - 1; j++) {
-                if (vetor2[j] > vetor2[i]) {
-                    temp = vetor2[i];
-                    vetor2[i] = vetor2[j];
-                    vetor2[j] = temp;
+            boolean existe = false;
+            for (int j = 0; j < i; j++) {
+                if (vetor[i] == vetor[j]) {
+                    existe = true;
                 }
             }
+            if (!existe) {
+                vetorUnico[index] = vetor[i];
+                index++;
+            }
         }
-        return vetor2;
+        return vetorUnico;
     }
 
-    private void Escrever(double[] vetor) {
+    private void Contar(double[] vetor, double[] vetorUnico) {
         System.out.println();
-        for (int i = 0; i < vetor.length; i++) {
-            System.out.print(vetor[i] + " ");
+        for (int i = 0; i < vetorUnico.length; i++) {
+            System.out.print(vetorUnico[i] + " - ");
+            int quantidade = 0;
+            for (int j = 0; j < vetorUnico.length; j++) {
+                if (vetorUnico[i] == vetor[j])
+                quantidade++;
+            }
+            System.out.println(quantidade);
         }
     }
 }
