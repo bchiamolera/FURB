@@ -144,7 +144,7 @@ public class Uni6Exe10 {
         for (int i = 0; i < qt; i++) {
             if (num == vetor[i]) {
                 vetor[i] = 0;
-                if (i < 20) {
+                if (i < 50) {
                     int j = i;
                     while (j < qt) {
                         int k = j + 1;
