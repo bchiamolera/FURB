@@ -193,6 +193,14 @@ public class Uni6Exe10 {
     }
 
     private void inverter(int[] vetor, int qt) {
-
+        int temp = 0;
+        for (int i = 0; i < qt; i++) {
+            for (int x = 0; x < i; x++) {
+                temp = vetor[i];
+                vetor[i] = vetor[x];
+                vetor[x] = temp;
+            }
+         }
+         System.out.println("Invertido.\n");
     }
 }
