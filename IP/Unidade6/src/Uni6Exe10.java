@@ -45,29 +45,29 @@ public class Uni6Exe10 {
         int op;
 
         do {
-            menu();
+            Menu();
             op = teclado.nextInt();
             switch (op) {
                 case 1:
-                    qt = incluir(teclado, vetor, qt);
+                    qt = Incluir(teclado, vetor, qt);
                     break;
                 case 2:
-                    pesquisar(teclado, vetor, qt);
+                    Pesquisar(teclado, vetor, qt);
                     break;
                 case 3:
-                    alterar(teclado, vetor, qt);
+                    Alterar(teclado, vetor, qt);
                     break;
                 case 4:
-                    qt = excluir(teclado, vetor, qt);
+                    qt = Excluir(teclado, vetor, qt);
                     break;
                 case 5:
-                    mostrar(vetor, qt);
+                    Mostrar(vetor, qt);
                     break;
                 case 6:
-                    ordenar(vetor, qt);
+                    Ordenar(vetor, qt);
                     break;
                 case 7:
-                    inverter(vetor, qt);
+                    Inverter(vetor, qt);
                     break;
                 case 8:
                     break;
@@ -79,7 +79,7 @@ public class Uni6Exe10 {
         teclado.close();
     }
 
-    private void menu() {
+    private void Menu() {
         System.out.println("1 - Incluir valor");
         System.out.println("2 - Pesquisar valor");
         System.out.println("3 - Alterar valor");
@@ -90,7 +90,7 @@ public class Uni6Exe10 {
         System.out.println("8 - Sair do sistema");
     }
 
-    private int incluir(Scanner teclado, int[] vetor, int qt) {
+    private int Incluir(Scanner teclado, int[] vetor, int qt) {
         if (qt < 50) {
             System.out.println("Informe o número que deseja adicionar");
             vetor[qt] = teclado.nextInt();
@@ -103,7 +103,7 @@ public class Uni6Exe10 {
         return qt;
     }
 
-    private void pesquisar(Scanner teclado, int[] vetor, int qt) {
+    private void Pesquisar(Scanner teclado, int[] vetor, int qt) {
         System.out.println("Informe o número que deseja pesquisar:");
         int num = teclado.nextInt();
         boolean check = false;
@@ -119,7 +119,7 @@ public class Uni6Exe10 {
         }
     }
 
-    private void alterar(Scanner teclado, int[] vetor, int qt) {
+    private void Alterar(Scanner teclado, int[] vetor, int qt) {
         System.out.println("Que número deseja alterar?");
         int num = teclado.nextInt();
         boolean check = false;
@@ -137,7 +137,7 @@ public class Uni6Exe10 {
         }
     }
 
-    private int excluir(Scanner teclado, int[] vetor, int qt) {
+    private int Excluir(Scanner teclado, int[] vetor, int qt) {
         System.out.println("Que número deseja excluir?");
         int num = teclado.nextInt();
         boolean check = false;
@@ -166,7 +166,7 @@ public class Uni6Exe10 {
         return qt;
     }
 
-    private void mostrar(int[] vetor, int qt) {
+    private void Mostrar(int[] vetor, int qt) {
         System.out.println();
         if (qt == 0) {
             System.out.println("Vetor vazio.\n");
@@ -178,7 +178,7 @@ public class Uni6Exe10 {
         }
     }
 
-    private void ordenar(int[] vetor, int qt) {
+    private void Ordenar(int[] vetor, int qt) {
         int temp;
         for (int i = 0; i < qt; i++) {
             for (int j = i + 1; j < qt; j++) {
@@ -192,7 +192,7 @@ public class Uni6Exe10 {
         System.out.println("Ordenado.\n");
     }
 
-    private void inverter(int[] vetor, int qt) {
+    private void Inverter(int[] vetor, int qt) {
         int temp = 0;
         for (int i = 0; i < qt; i++) {
             for (int x = 0; x < i; x++) {
