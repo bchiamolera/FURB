@@ -39,17 +39,17 @@ public class Uni6Exe10 {
 
     public Uni6Exe10() {
         Scanner teclado = new Scanner(System.in);
+
         int[] vetor = new int[50];
         int qt = 0;
-        int retorno = 0;
         int op;
+
         do {
             menu();
             op = teclado.nextInt();
             switch (op) {
                 case 1:
-                    retorno = incluir(teclado, vetor, qt);
-                    qt += retorno;
+                    qt = incluir(teclado, vetor, qt);
                     break;
                 case 2:
                     pesquisar(teclado, vetor, qt);
@@ -58,8 +58,7 @@ public class Uni6Exe10 {
                     alterar(teclado, vetor, qt);
                     break;
                 case 4:
-                    retorno = excluir(teclado, vetor, qt);
-                    qt += retorno;
+                    qt = excluir(teclado, vetor, qt);
                     break;
                 case 5:
                     mostrar(vetor, qt);
@@ -75,8 +74,8 @@ public class Uni6Exe10 {
                 default:
                     System.out.println("Opção inválida.\n");
             }
-            System.out.println(qt);
         } while (op != 8);
+
         teclado.close();
     }
 
@@ -96,7 +95,8 @@ public class Uni6Exe10 {
             System.out.println("Informe o número que deseja adicionar");
             vetor[qt] = teclado.nextInt();
             System.out.println("Número adicionado.\n");
-            return qt++;
+            qt++;
+            return qt;
         } else {
             System.out.println("Vetor cheio.\n");
         }
@@ -143,16 +143,22 @@ public class Uni6Exe10 {
         boolean check = false;
         for (int i = 0; i < qt; i++) {
             if (num == vetor[i]) {
-                int temp;
-                for (int j = i + 1; j < qt; j++) {
-                    temp = vetor[j - 1];
-                    vetor[j - 1] = vetor[j];
-                    vetor[j] = temp;
+                vetor[i] = 0;
+                if (i < 20) {
+                    int j = i;
+                    while (j < qt) {
+                        int k = j + 1;
+                        int temp = vetor[j];
+                        vetor[j] = vetor[k];
+                        vetor[k] = temp;
+                        j++;
+                    }
                 }
+                check = true;
+                System.out.println("Exclusão bem-sucedida.\n");
+                qt--;
+                return qt;
             }
-            check = true;
-            System.out.println("Exclusão bem-sucedida.\n");
-            return qt--;
         }
         if (!check) {
             System.out.println("Número não existe no vetor.\n");
