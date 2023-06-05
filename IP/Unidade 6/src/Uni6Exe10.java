@@ -91,7 +91,7 @@ public class Uni6Exe10 {
     }
 
     private int Incluir(Scanner teclado, int[] vetor, int qt) {
-        if (qt < 50) {
+        if (qt < vetor.length) {
             System.out.println("Informe o número que deseja adicionar");
             vetor[qt] = teclado.nextInt();
             System.out.println("Número adicionado.\n");
@@ -144,7 +144,7 @@ public class Uni6Exe10 {
         for (int i = 0; i < qt; i++) {
             if (num == vetor[i]) {
                 vetor[i] = 0;
-                if (i < 50) {
+                if (i < (vetor.length - 1)) {
                     int j = i;
                     while (j < qt) {
                         int k = j + 1;
