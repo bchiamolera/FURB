@@ -30,14 +30,15 @@
  vetorInverter.java.
  */
 
+
 import java.util.Scanner;
 
-public class Uni6Exe10 {
+public class teste {
     public static void main(String[] args) throws Exception {
-        new Uni6Exe10();
+        new teste();
     }
 
-    public Uni6Exe10() {
+    public teste() {
         Scanner teclado = new Scanner(System.in);
 
         int[] vetor = new int[50];
@@ -138,30 +139,34 @@ public class Uni6Exe10 {
     }
 
     private int Excluir(Scanner teclado, int[] vetor, int qt) {
-        System.out.println("Que número deseja excluir?");
-        int num = teclado.nextInt();
-        boolean check = false;
-        for (int i = 0; i < qt; i++) {
-            if (num == vetor[i]) {
-                vetor[i] = 0;
-                if (i < (vetor.length - 1)) {
-                    int j = i;
-                    while (j < qt) {
-                        int k = j + 1;
-                        int temp = vetor[j];
-                        vetor[j] = vetor[k];
-                        vetor[k] = temp;
-                        j++;
+        if (qt > 0) {
+            System.out.println("Que número deseja excluir?");
+            int num = teclado.nextInt();
+            boolean check = false;
+            for (int i = 0; i < qt; i++) {
+                if (num == vetor[i]) {
+                    vetor[i] = 0;
+                    if (i < (vetor.length - 1)) {
+                        int j = i;
+                        while (j < qt) {
+                            int k = j + 1;
+                            int temp = vetor[j];
+                            vetor[j] = vetor[k];
+                            vetor[k] = temp;
+                            j++;
+                        }
                     }
+                    check = true;
+                    System.out.println("Exclusão bem-sucedida.\n");
+                    qt--;
+                    return qt;
                 }
-                check = true;
-                System.out.println("Exclusão bem-sucedida.\n");
-                qt--;
-                return qt;
             }
-        }
-        if (!check) {
-            System.out.println("Número não existe no vetor.\n");
+            if (!check) {
+                System.out.println("Número não existe no vetor.\n");
+            }
+        } else {
+            System.out.println("Vetor vazio.\n");
         }
         return qt;
     }
@@ -200,7 +205,7 @@ public class Uni6Exe10 {
                 vetor[i] = vetor[x];
                 vetor[x] = temp;
             }
-         }
-         System.out.println("Invertido.\n");
+        }
+        System.out.println("Invertido.\n");
     }
 }
