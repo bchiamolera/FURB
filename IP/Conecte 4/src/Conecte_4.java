@@ -11,6 +11,8 @@ public class Conecte_4 {
         char[][] tabuleiro = new char[6][7];
         char jogador = ' ';
         char computador = ' ';
+        boolean vitoria = false;
+        int posicao;
 
         Criacao(tabuleiro);
         jogador = EscolhaCor(teclado);
@@ -20,7 +22,10 @@ public class Conecte_4 {
             computador = 'A';
         }
 
-        Output(tabuleiro);
+        do {
+            posicao = EscolhaPosicao(teclado, tabuleiro, jogador, computador);
+            Jogada(posicao, tabuleiro, jogador, computador);
+        } while (!vitoria);
 
         teclado.close();
     }
@@ -44,6 +49,26 @@ public class Conecte_4 {
             }
         } while (!check);
         return op;
+    }
+
+    private int EscolhaPosicao(Scanner teclado, char[][] tabuleiro, char jogador, char computador) {
+        int posicao = -1;
+        boolean check = false;
+        do {
+            System.out.println("\nEscolha a posição de jogada (entre 1 e 7): \n(0 para ver o tabuleiro)");
+            posicao = teclado.nextInt();
+            if (posicao == 0) {
+                System.out.println();
+                Output(tabuleiro);
+            } else if (posicao >= 1 && posicao <= 7) {
+                check = true;
+            }
+        } while (!check);
+        return posicao;
+    }
+    
+    private void Jogada(int posicao, char[][] tabuleiro, char jogador, char computador) {
+
     }
 
     private void Output(char[][] tabuleiro) {
