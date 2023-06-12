@@ -13,7 +13,7 @@ public class Conecte_4 {
         char computador = ' ';
 
         Criacao(tabuleiro);
-        jogador = Escolha(teclado);
+        jogador = EscolhaCor(teclado);
         if (jogador ==  'A') {
             computador =  'V';
         } else {
@@ -33,7 +33,7 @@ public class Conecte_4 {
         }
     }
 
-    private char Escolha(Scanner teclado) {
+    private char EscolhaCor(Scanner teclado) {
         char op = ' ';
         boolean check = false;
         do {
