@@ -1,5 +1,3 @@
-// int rand = Math.randm()*7;
-
 import java.util.Scanner;
 
 public class Conecte_4 {
