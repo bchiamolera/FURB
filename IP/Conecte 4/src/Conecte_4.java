@@ -11,8 +11,8 @@ public class Conecte_4 {
         
         do {
         char[][] tabuleiro = new char[6][7];
-        char jogador = ' ';
-        char computador = ' ';
+        char jogador;
+        char computador;
         boolean fim = false;
         int[] camadaColuna = {5, 5, 5, 5, 5, 5, 5};
 
@@ -26,11 +26,12 @@ public class Conecte_4 {
 
         do {
             JogadaPlayer(teclado, tabuleiro, camadaColuna, jogador);
+            fim = ValidarVitoria(camadaColuna, tabuleiro, jogador, computador);
             JogadaComputador(camadaColuna, tabuleiro, computador);
-            Output(tabuleiro);
             fim = ValidarVitoria(camadaColuna, tabuleiro, jogador, computador);
 
         } while (!fim);
+        Output(tabuleiro);
         check = JogarNovamente(teclado);
     } while (!check);
 
@@ -38,7 +39,6 @@ public class Conecte_4 {
     }
 
     private void Criacao(char[][] tabuleiro) {
-        // CRIA TABULEIRO
         for (int linhas = 0; linhas < 6; linhas++) {
             for (int colunas = 0; colunas < 7; colunas++) {
                 tabuleiro[linhas][colunas] = 'B';
@@ -47,7 +47,7 @@ public class Conecte_4 {
     }
 
     private char EscolhaCor(Scanner teclado) {
-        char op = ' ';
+        char op;
         boolean check = false;
         do {
             System.out.println("\nEscolha a sua cor: A - Amarelo; V - Vermelho");
@@ -60,18 +60,18 @@ public class Conecte_4 {
     }
 
     private void JogadaPlayer(Scanner teclado, char[][] tabuleiro, int[] camadaColuna, char jogador) {
-        int posicao;
+        int posicaoJogador;
         boolean check = false;
         do {
             System.out.println("\nEscolha a posição de jogada (entre 1 e 7): \n(0 para ver o tabuleiro)");
-            posicao = teclado.nextInt();
-            if (posicao == 0) {
+            posicaoJogador = teclado.nextInt();
+            if (posicaoJogador == 0) {
                 Output(tabuleiro);
-            } else if (posicao >= 1 && posicao <= 7) {
-                posicao--;
-                if (camadaColuna[posicao] >= 0) {
-                    tabuleiro[camadaColuna[posicao]][posicao] = jogador;
-                    camadaColuna[posicao]--;
+            } else if (posicaoJogador >= 1 && posicaoJogador <= 7) {
+                posicaoJogador--;
+                if (camadaColuna[posicaoJogador] >= 0) {
+                    tabuleiro[camadaColuna[posicaoJogador]][posicaoJogador] = jogador;
+                    camadaColuna[posicaoJogador]--;
                     check = true;
                 } else {
                     System.out.println("\nJogada inválida. Coluna cheia.");
@@ -93,7 +93,6 @@ public class Conecte_4 {
     }
 
     private void Output(char[][] tabuleiro) {
-        // IMPRIME TABULEIRO
         System.out.println();
         for (int linhas = 0; linhas < 6; linhas++) {
             for (int colunas = 0; colunas < 7; colunas++) {
@@ -107,8 +106,6 @@ public class Conecte_4 {
         int validarEmpate = 0;
         int validarJogador = 0;
         int validarComputador = 0;
-        
-        // VALIDAR EMPATE
         for (int i = 0; i < camadaColuna.length; i++) {
             if (camadaColuna[i] == -1) {
                 validarEmpate++;
@@ -118,7 +115,6 @@ public class Conecte_4 {
             System.out.println("\nEMPATE");
             return true;
         } else {
-            
             // VALIDACAO HORIZONTAL JOGADOR
             for (int linhas = 0; linhas < 6; linhas++) {
                 for (int colunas = 0; colunas < 7; colunas++) {
@@ -179,7 +175,7 @@ public class Conecte_4 {
                 }
             }
 
-        // VALIDACAO DIAGONAL PARA BAIXO JOGADOR
+        // VALIDACAO DIAGONAL PARA ESQUERDA JOGADOR
             for (int linhas = 0; linhas < tabuleiro.length - 3; linhas++) {
                 for (int colunas = 0; colunas < tabuleiro[0].length - 3; colunas ++) {
                     if (tabuleiro[linhas][colunas] == jogador &&
@@ -192,7 +188,7 @@ public class Conecte_4 {
                 }
             }
 
-        // VALIDACAO DIAGONAL PARA BAIXO COMPUTADOR
+        // VALIDACAO DIAGONAL PARA ESQUERDA COMPUTADOR
         for (int linhas = 0; linhas < tabuleiro.length - 3; linhas++) {
             for (int colunas = 0; colunas < tabuleiro[0].length - 3; colunas ++) {
                 if (tabuleiro[linhas][colunas] == computador &&
@@ -205,7 +201,7 @@ public class Conecte_4 {
             }
         }
 
-        // VALIDACAO DIAGONAL PARA CIMA JOGADOR
+        // VALIDACAO DIAGONAL PARA DIREITA JOGADOR
         for (int linhas = 3; linhas < tabuleiro.length; linhas++) {
             for (int colunas = 0; colunas < tabuleiro[0].length - 3; colunas ++) {
                 if (tabuleiro[linhas][colunas] == jogador &&
@@ -218,7 +214,7 @@ public class Conecte_4 {
             }
         }
 
-        // VALIDACAO DIAGONAL PARA CIMA COMPUTADOR
+        // VALIDACAO DIAGONAL PARA DIREITA COMPUTADOR
         for (int linhas = 3; linhas < tabuleiro.length; linhas++) {
             for (int colunas = 0; colunas < tabuleiro[0].length - 3; colunas ++) {
                 if (tabuleiro[linhas][colunas] == computador &&
