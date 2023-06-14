@@ -38,6 +38,7 @@ public class Conecte_4 {
     }
 
     private void Criacao(char[][] tabuleiro) {
+        // CRIA TABULEIRO
         for (int linhas = 0; linhas < 6; linhas++) {
             for (int colunas = 0; colunas < 7; colunas++) {
                 tabuleiro[linhas][colunas] = 'B';
@@ -84,14 +85,15 @@ public class Conecte_4 {
         do {
             int posicaoComp = (int) (Math.random() * 7);
             if (camadaColuna[posicaoComp] >= 0) {
-                // tabuleiro[camadaColuna[posicaoComp]][posicaoComp] = computador;
-                // camadaColuna[posicaoComp]--;
+                tabuleiro[camadaColuna[posicaoComp]][posicaoComp] = computador;
+                camadaColuna[posicaoComp]--;
                 check = true;
             }
         } while (!check);
     }
 
     private void Output(char[][] tabuleiro) {
+        // IMPRIME TABULEIRO
         System.out.println();
         for (int linhas = 0; linhas < 6; linhas++) {
             for (int colunas = 0; colunas < 7; colunas++) {
@@ -105,6 +107,8 @@ public class Conecte_4 {
         int validarEmpate = 0;
         int validarJogador = 0;
         int validarComputador = 0;
+        
+        // VALIDAR EMPATE
         for (int i = 0; i < camadaColuna.length; i++) {
             if (camadaColuna[i] == -1) {
                 validarEmpate++;
@@ -114,6 +118,7 @@ public class Conecte_4 {
             System.out.println("\nEMPATE");
             return true;
         } else {
+            
             // VALIDACAO HORIZONTAL JOGADOR
             for (int linhas = 0; linhas < 6; linhas++) {
                 for (int colunas = 0; colunas < 7; colunas++) {
@@ -173,22 +178,60 @@ public class Conecte_4 {
                     }
                 }
             }
+
+        // VALIDACAO DIAGONAL PARA BAIXO JOGADOR
+            for (int linhas = 0; linhas < tabuleiro.length - 3; linhas++) {
+                for (int colunas = 0; colunas < tabuleiro[0].length - 3; colunas ++) {
+                    if (tabuleiro[linhas][colunas] == jogador &&
+                        tabuleiro[linhas + 1][colunas + 1] == jogador &&
+                        tabuleiro[linhas + 2][colunas + 2] == jogador &&
+                        tabuleiro[linhas + 3][colunas + 3] == jogador) {
+                            System.out.println("\nVOCÊ GANHOU!");
+                            return true;
+                    }
+                }
+            }
+
+        // VALIDACAO DIAGONAL PARA BAIXO COMPUTADOR
+        for (int linhas = 0; linhas < tabuleiro.length - 3; linhas++) {
+            for (int colunas = 0; colunas < tabuleiro[0].length - 3; colunas ++) {
+                if (tabuleiro[linhas][colunas] == computador &&
+                    tabuleiro[linhas + 1][colunas + 1] == computador &&
+                    tabuleiro[linhas + 2][colunas + 2] == computador &&
+                    tabuleiro[linhas + 3][colunas + 3] == computador) {
+                        System.out.println("\nVOCÊ PERDEU!");
+                        return true;
+                }
+            }
         }
 
-        // VALIDACAO DIAGONAL PARA ESQUERDA JOGADOR
+        // VALIDACAO DIAGONAL PARA CIMA JOGADOR
+        for (int linhas = 3; linhas < tabuleiro.length; linhas++) {
+            for (int colunas = 0; colunas < tabuleiro[0].length - 3; colunas ++) {
+                if (tabuleiro[linhas][colunas] == jogador &&
+                    tabuleiro[linhas - 1][colunas + 1] == jogador &&
+                    tabuleiro[linhas - 2][colunas + 2] == jogador &&
+                    tabuleiro[linhas - 3][colunas + 3] == jogador) {
+                        System.out.println("\nVOCÊ GANHOU!");
+                        return true;
+                }
+            }
+        }
 
-
-        // VALIDACAO DIAGONAL PARA ESQUERDA COMPUTADOR
-
-
-        // VALIDACAO DIAGONAL PARA DIREITA JOGADOR
-
-
-        // VALIDACAO DIAGONAL PARA DIREITA COMPUTADOR
-
-        
+        // VALIDACAO DIAGONAL PARA CIMA COMPUTADOR
+        for (int linhas = 3; linhas < tabuleiro.length; linhas++) {
+            for (int colunas = 0; colunas < tabuleiro[0].length - 3; colunas ++) {
+                if (tabuleiro[linhas][colunas] == computador &&
+                    tabuleiro[linhas - 1][colunas + 1] == computador &&
+                    tabuleiro[linhas - 2][colunas + 2] == computador &&
+                    tabuleiro[linhas - 3][colunas + 3] == computador) {
+                        System.out.println("\nVOCÊ PERDEU!");
+                        return true;
+                }
+            }
+        }
+        }
         return false;
-    
     }
 
     private boolean JogarNovamente(Scanner teclado) {
