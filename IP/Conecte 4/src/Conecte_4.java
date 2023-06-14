@@ -1,4 +1,4 @@
-// int rand = (int) Math.random() * 7;
+// int rand = Math.randm()*7;
 
 import java.util.Scanner;
 
@@ -9,7 +9,9 @@ public class Conecte_4 {
 
     public Conecte_4() {
         Scanner teclado = new Scanner(System.in);
-
+        boolean check = false;
+        
+        do {
         char[][] tabuleiro = new char[6][7];
         char jogador = ' ';
         char computador = ' ';
@@ -28,9 +30,11 @@ public class Conecte_4 {
             JogadaPlayer(teclado, tabuleiro, camadaColuna, jogador);
             JogadaComputador(camadaColuna, tabuleiro, computador);
             Output(tabuleiro);
-            fim = ValidarVitoria(camadaColuna);
+            fim = ValidarVitoria(camadaColuna, tabuleiro, jogador, computador);
 
         } while (!fim);
+        check = JogarNovamente(teclado);
+    } while (!check);
 
         teclado.close();
     }
@@ -47,7 +51,7 @@ public class Conecte_4 {
         char op = ' ';
         boolean check = false;
         do {
-            System.out.println("Escolha a sua cor: A - Amarelo; V - Vermelho");
+            System.out.println("\nEscolha a sua cor: A - Amarelo; V - Vermelho");
             op = teclado.next().trim().toUpperCase().charAt(0);
             if (op == 'A' || op == 'V') {
                 check = true;
@@ -78,12 +82,12 @@ public class Conecte_4 {
     }
 
     private void JogadaComputador(int[] camadaColuna, char[][] tabuleiro, char computador) {
-        int posicaoComp = (int) (Math.random() * 7);
         boolean check = false;
         do {
+            int posicaoComp = (int) (Math.random() * 7);
             if (camadaColuna[posicaoComp] >= 0) {
-                tabuleiro[camadaColuna[posicaoComp]][posicaoComp] = computador;
-                camadaColuna[posicaoComp]--;
+                // tabuleiro[camadaColuna[posicaoComp]][posicaoComp] = computador;
+                // camadaColuna[posicaoComp]--;
                 check = true;
             }
         } while (!check);
@@ -99,19 +103,111 @@ public class Conecte_4 {
         }
     }
 
-    private boolean ValidarVitoria(int[] camadaColuna) {
+    private boolean ValidarVitoria(int[] camadaColuna, char[][] tabuleiro, char jogador, char computador) {
         int validarEmpate = 0;
+        int validarJogador = 0;
+        int validarComputador = 0;
         for (int i = 0; i < camadaColuna.length; i++) {
             if (camadaColuna[i] == -1) {
                 validarEmpate++;
             }
         }
         if (validarEmpate == 7) {
-            System.out.println("\nEmpate.");
+            System.out.println("\nEMPATE");
             return true;
         } else {
+            // VALIDACAO HORIZONTAL JOGADOR
+            for (int linhas = 0; linhas < 6; linhas++) {
+                for (int colunas = 0; colunas < 7; colunas++) {
+                    if (tabuleiro[linhas][colunas] == jogador){
+                        validarJogador++;
+                        if (validarJogador == 4) {
+                            System.out.println("\nVOCÊ VENCEU!");
+                            return true;
+                        }
+                    } else {
+                        validarJogador = 0;
+                    }
+                }
+            }
+
+            // VALIDACAO HORIZONTAL COMPUTADOR
+            for (int linhas = 0; linhas < 6; linhas++) {
+                for (int colunas = 0; colunas < 7; colunas++) {
+                    if (tabuleiro[linhas][colunas] == computador){
+                        validarComputador++;
+                        if (validarComputador == 4) {
+                            System.out.println("\nVOCÊ PERDEU!");
+                            return true;
+                        }
+                    } else {
+                        validarComputador = 0;
+                    }
+                }
+            }
+
+            // VALIDACAO VERTICAL JOGADOR 
+            for (int colunas = 0; colunas < 7; colunas++) {
+                for (int linhas = 0; linhas < 6; linhas++) {
+                    if (tabuleiro[linhas][colunas] == jogador){
+                        validarJogador++;
+                        if (validarJogador == 4) {
+                            System.out.println("\nVOCÊ VENCEU!");
+                            return true;
+                        }
+                    } else {
+                        validarJogador = 0;
+                    }
+                }
+            }
+
+            // VALIDACAO VERTICAL COMPUTADOR
+            for (int colunas = 0; colunas < 7; colunas++) {
+                for (int linhas = 0; linhas < 6; linhas++) {
+                    if (tabuleiro[linhas][colunas] == computador){
+                        validarComputador++;
+                        if (validarComputador == 4) {
+                            System.out.println("\nVOCÊ PERDEU!");
+                            return true;
+                        }
+                    } else {
+                        validarComputador = 0;
+                    }
+                }
+            }
+        }
+
+        // VALIDACAO DIAGONAL PARA ESQUERDA JOGADOR
+
+
+        // VALIDACAO DIAGONAL PARA ESQUERDA COMPUTADOR
+
+
+        // VALIDACAO DIAGONAL PARA DIREITA JOGADOR
+
+
+        // VALIDACAO DIAGONAL PARA DIREITA COMPUTADOR
+
+        
+        return false;
+    
+    }
+
+    private boolean JogarNovamente(Scanner teclado) {
+        int op = 0;
+        boolean check = false;
+        do {
+            System.out.println("\nDeseja jogar novamente?\n1. Sim   2. Não");
+            op = teclado.nextInt();
+            if (op == 1 || op == 2) {
+                check = true;
+            } else {
+                System.out.println("Opção inválida.");
+            }
+        } while (!check);
+        if (op == 1) {
             return false;
         }
-    
+        return true;
     }
 }
