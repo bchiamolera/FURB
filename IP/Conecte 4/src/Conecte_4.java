@@ -27,9 +27,10 @@ public class Conecte_4 {
         do {
             JogadaPlayer(teclado, tabuleiro, camadaColuna, jogador);
             fim = ValidarVitoria(camadaColuna, tabuleiro, jogador, computador);
-            JogadaComputador(camadaColuna, tabuleiro, computador);
-            fim = ValidarVitoria(camadaColuna, tabuleiro, jogador, computador);
-
+            if (!fim) {
+                JogadaComputador(camadaColuna, tabuleiro, computador);
+                fim = ValidarVitoria(camadaColuna, tabuleiro, jogador, computador);
+            }
         } while (!fim);
         Output(tabuleiro);
         check = JogarNovamente(teclado);
