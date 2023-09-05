@@ -43,7 +43,7 @@ public class Apolice {
     public String imprimir() {
         return "Nome: " + this.getNome() +
                "\nIdade: " + this.getIdade() +
-               "\nValor Prêmio: R$ " + dfMoney.format(this.getValorPremio()) + "\n";
+               "\nValor Prêmio: R$ " + dfMoney.format(this.getValorPremio());
     }
 
     public void calcularPremio() {
