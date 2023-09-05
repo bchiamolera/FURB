@@ -103,11 +103,11 @@ public class TrabPrat01 {
             new Carro("Fox", "VW", "LML002", "Vermelha", 2010, 30000, 2),
             new Carro("Uno", "Fiat", "MLM003", "Cinza", 2011, 32000, 3),
             new Carro("Fiesta", "Ford", "LLL004", "Branca", 2009, 29000, 1),
-            new Carro("Palio", "Fiat", "KKK345", "Amarelo", 2011, 26000, 1),
+            new Carro("Palio", "Fiat", "KKK345", "Amarelo", 2011, 26000, 1)
         };
 
         System.out.println(carrosMaisCarosAno(carros, 2011));
-        System.out.println(carrosMarcaPorPreco(carros, "VW", 25000, 29999.99));
+        System.out.println(carrosMarcaPorPreco(carros, "VW", 25000, 30000));
         System.out.println(carrosMaisCarosEBaratosLocal(carros, 1));
     }
 }
