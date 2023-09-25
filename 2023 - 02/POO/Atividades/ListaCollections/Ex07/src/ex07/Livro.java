@@ -22,46 +22,57 @@ public class Livro {
     private double pVenda;
     
     // Getters e Setters
-
     public String getTitulo() {
         return titulo;
     }
-    public void setTitulo(String titulo) {
+    public void setTitulo(String titulo) throws IllegalArgumentException {
+        if (titulo == null || titulo.trim().isEmpty())
+            throw new IllegalArgumentException();
         this.titulo = titulo;
     }
 
     public String getAutor() {
         return autor;
     }
-    public void setAutor(String autor) {
+    public void setAutor(String autor) throws IllegalArgumentException {
+        if (autor == null || autor.trim().isEmpty())
+            throw new IllegalArgumentException();
         this.autor = autor;
     }
 
     public String getIsbn() {
         return isbn;
     }
-    public void setIsbn(String isbn) {
+    public void setIsbn(String isbn) throws IllegalArgumentException {
+        if (isbn == null || isbn.trim().isEmpty())
+            throw new IllegalArgumentException();
         this.isbn = isbn;
     }
 
     public int getEstoque() {
         return estoque;
     }
-    public void setEstoque(int estoque) {
+    public void setEstoque(int estoque) throws IllegalArgumentException {
+        if (estoque < 0)
+            throw new IllegalArgumentException();
         this.estoque = estoque;
     }
 
     public double getpCompra() {
         return pCompra;
     }
-    public void setpCompra(double pCompra) {
+    public void setpCompra(double pCompra) throws IllegalArgumentException {
+        if (estoque < 0)
+            throw new IllegalArgumentException();
         this.pCompra = pCompra;
     }
 
     public double getpVenda() {
         return pVenda;
     }
-    public void setpVenda(double pVenda) {
+    public void setpVenda(double pVenda) throws IllegalArgumentException {
+        if (estoque < 0)
+            throw new IllegalArgumentException();
         this.pVenda = pVenda;
     }
     
@@ -77,9 +88,9 @@ public class Livro {
     
     @Override
     public String toString() {
-        return "Titulo: " + this.getTitulo() + "\nAutor: " + this.getAutor() 
+        return "Título: " + this.getTitulo() + "\nAutor: " + this.getAutor() 
              + "\nISBN: " + this.getIsbn() + "\nEstoque: " + this.getEstoque() 
-             + "\nPreco compra: R$" + dfMoney.format(this.getpCompra())
-             + "\nPreco venda: R$" + dfMoney.format(this.getpVenda());
+             + "\nPreço compra: R$" + dfMoney.format(this.getpCompra())
+             + "\nPreço venda: R$" + dfMoney.format(this.getpVenda());
     }
 }

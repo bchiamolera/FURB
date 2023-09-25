@@ -12,44 +12,52 @@ import java.util.HashMap;
 
 public class Ex04 {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void inserirSite(Site s, HashMap<String, Site> h) {
+    public static boolean inserirSite(Site s, HashMap<String, Site> h) {
+        if (h.containsKey(s.getNome())) {
+            return false;
+        }
         h.put(s.getNome(), s);
+        return true;
     }
-    
+
     public static String acessarSite(String s, HashMap<String, Site> h) {
         if (h.containsKey(s)) {
-            if (h.get(s).isStatusSite()) return "Site: " + h.get(s).getNome() + "\nIP: " + h.get(s).getEnderecoDeIp();
-            else return "Site bloqueado";
+            if (h.get(s).isStatusSite()) {
+                return "Site: " + h.get(s).getNome() + "\nIP: " + h.get(s).getEnderecoDeIp();
+            } else {
+                return "Site bloqueado";
+            }
         }
         return "Site não existe";
     }
-    
+
     public static String imprimirSite(HashMap<String, Site> h) {
-        String retorno = "";
+        String ret = "";
         for (Site s : h.values()) {
-            retorno += s.toString();
+            ret += s.toString();
         }
-        return retorno;
+        return ret;
     }
-    
+
     public static void main(String[] args) {
-        Site s = new Site("www.inf.furb.br", "201.54.201.5", true);
-        Site s1 = new Site("www.orkut.com", "64.233.163.86", false);
-        
-        HashMap<String, Site> mapaSite = new HashMap<String, Site>();
-        
-        inserirSite(s, mapaSite);
-        inserirSite(s1, mapaSite);
-        
-        System.out.println(acessarSite("www.inf.furb.br", mapaSite));
-        System.out.println("");
-        System.out.println(acessarSite("www.orkut.com", mapaSite));
-        System.out.println("");
-        
-        System.out.println(imprimirSite(mapaSite));
+        HashMap<String, Site> mapaSite = new HashMap<>();
+
+        try {
+            Site s = new Site("www.inf.furb.br", "201.54.201.5", true);
+            Site s1 = new Site("www.orkut.com", "64.233.163.86", false);
+
+            inserirSite(s, mapaSite);
+            inserirSite(s1, mapaSite);
+
+            System.out.println(acessarSite("www.inf.furb.br", mapaSite));
+            System.out.println("");
+            System.out.println(acessarSite("www.orkut.com", mapaSite));
+            System.out.println("");
+
+            System.out.println(imprimirSite(mapaSite));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
-    
+
 }

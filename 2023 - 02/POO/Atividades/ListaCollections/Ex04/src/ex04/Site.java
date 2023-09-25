@@ -9,6 +9,7 @@ package ex04;
  * @author Bernardo Chiamolera
  */
 public class Site {
+
     // Atributos
     private String nome;
     private String enderecoDeIp;
@@ -19,7 +20,10 @@ public class Site {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws IllegalArgumentException {
+        if (nome.trim().isEmpty() || nome == null) {
+            throw new IllegalArgumentException();
+        }
         this.nome = nome;
     }
 
@@ -28,6 +32,9 @@ public class Site {
     }
 
     public void setEnderecoDeIp(String enderecoDeIp) {
+        if (enderecoDeIp.trim().isEmpty() || enderecoDeIp == null) {
+            throw new IllegalArgumentException();
+        }
         this.enderecoDeIp = enderecoDeIp;
     }
 
@@ -45,14 +52,16 @@ public class Site {
         setEnderecoDeIp(enderecoDeIp);
         setStatusSite(statusSite);
     }
-    
-    
+
     // Métodos
     @Override
     public String toString() {
         String status;
-        if (this.isStatusSite()) status = "Livre";
-        else status = "Bloqueado";
+        if (this.isStatusSite()) {
+            status = "Livre";
+        } else {
+            status = "Bloqueado";
+        }
         return "Site: " + this.getNome() + "\nIP: " + this.getEnderecoDeIp() + "\nAcesso: " + status;
     }
 }
