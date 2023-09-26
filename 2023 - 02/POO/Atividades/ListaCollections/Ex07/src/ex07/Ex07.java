@@ -22,22 +22,25 @@ public class Ex07 {
         Livro l4 = new Livro("1984", "George Orwell", "978-0451524935", 10.0, 17.99);
         Livro l5 = new Livro("Cem Anos de Solidão", "Gabriel García Márquez", "978-0061120091", 15.5, 22.99);
 
-        Livro l6 = new Livro("O Pequeno Principe", "Antoine de Saint-Exupery", "978-3150003747", 9.99, 16.99);
+        Livro l6 = new Livro("O Pequeno Principe", "Antoine de Saint-Exupéry", "978-3150003747", 9.99, 16.99);
 
+        System.out.println("Compras: ");
         System.out.println(e.compraDeLivros(l1, 3));
         System.out.println(e.compraDeLivros(l2, 6));
         System.out.println(e.compraDeLivros(l3, 10));
         System.out.println(e.compraDeLivros(l4, 5));
         System.out.println(e.compraDeLivros(l5, 1));
+        System.out.println(e.compraDeLivros(l6, 1000));
 
+        System.out.println("\nVendas:");
         System.out.println(e.vendaDeLivros(l1.getIsbn(), 2));
         System.out.println(e.vendaDeLivros(l2.getIsbn(), 1));
         System.out.println(e.vendaDeLivros(l3.getIsbn(), 5));
         System.out.println(e.vendaDeLivros(l4.getIsbn(), 7));
         System.out.println(e.vendaDeLivros(l5.getIsbn(), 1));
-
         System.out.println(e.vendaDeLivros(l6.getIsbn(), 2));
 
+        System.out.println("");
         System.out.println(e.imprimeEstoque());
     }
 }
