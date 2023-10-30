@@ -58,4 +58,4 @@ WHERE nr_ano_fab >= 2015 AND qt_km_rodado < 50000 AND qt_portas >= 4 AND ds_obse
 -- l)      Listar o nome do(s) proprietário(s) que residem em um bairro em que o nome tenha a palavra "Novo" ou "Nova" e que a UF seja de "SC";
 SELECT nm_proprietario
 FROM proprietario
-WHERE sg_uf = "SC" AND (ds_bairro LIKE "%Novo%" OR ds_bairro LIKE "%Nova%");
+WHERE sg_uf = "SC" AND (ds_bairro LIKE "%NOVO%" OR ds_bairro LIKE "%NOVA%");

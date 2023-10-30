@@ -56,3 +56,11 @@ WHERE 1 = 0;
 -- COPIANDO DADOS
 INSERT INTO tabela2
 SELECT * FROM tabela;
+
+-- SELECTS CLAUSULAS
+SELECT col [AS alias], col2 ["alias 2"]
+FROM tabela
+[WHERE col = val || UPPER/LOWER(col) LIKE "COND%" || col IN(vlr1, vlr2) || col LIKE '%vlr_' || col IS [NOT] NULL || col BETWEEN vlr1 AND vlr2]
+[ORDER BY col/alias/posicaoColuna ASC/DESC,]
+[GROUP BY ,]
+[HAVING ];
