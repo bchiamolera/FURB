@@ -10,10 +10,10 @@ CREATE TABLE tabela (
 -- ALTERANDO TABELAS
 ALTER TABLE tabela
 MODIFY COLUMN coluna TIPO [RESTRICAO],
-[DROP COLUMN col,
-ADD CONSTRAINT nm_restricao RESTRICAO(coluna)
-DROP CONSTRAINT nome_restricao,
-DROP RESTRICAO];
+[DROP COLUMN col]
+[ADD CONSTRAINT nm_restricao RESTRICAO(coluna)]
+[DROP CONSTRAINT nome_restricao]
+[DROP RESTRICAO];
 
 -- DELETANDO TABELAS
 DROP TABLE tabela;
@@ -61,16 +61,17 @@ SELECT * FROM tabela;
 SELECT col [AS alias], col2 ["alias 2"]
 FROM tabela
 [WHERE col = val || UPPER/LOWER(col) LIKE "COND%" || col IN(vlr1, vlr2) || col LIKE '%vlr_' || col IS [NOT] NULL || col BETWEEN vlr1 AND vlr2]
-[ORDER BY col/alias/posicaoColuna ASC/DESC,]
+[ORDER BY col/alias/posicaoColuna ASC/DESC]
 [HAVING condicao]
-[GROUP BY col,];
+[GROUP BY col];
 
+-- % -> outros caracteres podem continuar / vir antes
+-- _ -> Caractere coringa
 
 -- JOINS
 SELECT *
 FROM tab1
-[INNER] JOIN tab2 ON tab1.col = tab2.col;
-|| WHERE tab1.col = tab2.col;
+[INNER] JOIN tab2 ON tab1.col = tab2.col || WHERE tab1.col = tab2.col;
 
 SELECT *
 FROM tab1
