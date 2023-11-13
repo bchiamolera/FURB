@@ -35,6 +35,7 @@ SELECT nr_placa, nr_ano_mod, qt_km_rodado, qt_portas
 FROM veiculo
 WHERE nr_ano_fab >= 2000;
 
+-- BERNARDO
 -- h)     Listar o número da placa do(s) veículo(s) que não possui(em) uma informação adicional cadastrada (coluna observação);
 SELECT nr_placa
 FROM veiculo

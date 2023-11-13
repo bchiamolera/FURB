@@ -20,7 +20,7 @@ DROP TABLE tabela;
 
 -- RESTRIÇÕES
 PRIMARY KEY (col)
-FOREIGN KEY (col_dentro) REFERENCES (col_fora)
+FOREIGN KEY (col_dentro) REFERENCES tab2(col_fora)
 UNIQUE (col)
 CHECK (col BETWEEN x AND y)
 NOT NULL
@@ -64,3 +64,20 @@ FROM tabela
 [ORDER BY col/alias/posicaoColuna ASC/DESC,]
 [GROUP BY ,]
 [HAVING ];
+
+-- JOINS
+SELECT *
+FROM tab1
+[INNER] JOIN tab2 ON tab1.col = tab2.col;
+
+SELECT *
+FROM tab1
+RIGHT JOIN tab2 ON tab1.col = tab2.col;
+
+SELECT *
+FROM tab1
+LEFT JOIN tab2 ON tab1.col = tab2.col;
+
+SELECT *
+FROM tab1
+OUTER JOIN tab2 ON tab1.col = tab2.col;
