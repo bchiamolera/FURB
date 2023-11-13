@@ -27,7 +27,8 @@ CREATE TABLE Filme (
 
 CREATE TABLE Filme_Ator (
 	cd_filme INT  REFERENCES Filme(cd_filme),
-	cd_ator INT REFERENCES Ator(cd_ator)
+	cd_ator INT REFERENCES Ator(cd_ator),
+	ON DELETE CASCADE
 );
 
 
@@ -85,3 +86,73 @@ WHERE nr_duracao IS NULL;
 -- DELETE
 DELETE FROM Filme
 WHERE ds_sinopse IS NULL;
+
+-- --------------------------------------------------------------------
+-- --------------------------------------------------------------------
+
+-- OUTROS EXEMPLOS AULA
+-- Listar nome do filme e descrição da censura
+SELECT f.nm_filme, c.ds_censura
+FROM filme f
+	JOIN censura c ON f.cd_censura = c.cd_censura;
+
+-- --------------------------------------------------------------------
+
+SELECT * FROM censura;
+
+INSERT INTO censura (cd_censura, ds_censura) VALUES (4, "16 anos");
+
+SELECT f.nm_filme, c.ds_censura
+FROM filme f
+	LEFT JOIN censura c ON f.cd_censura = c.cd_censura;
+
+SELECT f.nm_filme, c.ds_censura
+FROM filme f
+	RIGHT JOIN censura c ON f.cd_censura = c.cd_censura;
+
+-- --------------------------------------------------------------------
+
+-- Listar nome do filme, descrição da censura e descrição do gênero
+SELECT f.nm_filme, c.ds_censura, g.ds_genero
+FROM filme f, censura c, genero g
+WHERE f.cd_censura = c.cd_censura AND f.cd_genero = g.cd_genero;
+
+SELECT f.nm_filme, c.ds_censura, g.ds_genero
+FROM filme f
+	JOIN censura c ON f.cd_censura = c.cd_censura
+	JOIN genero g ON f.cd_genero = g.cd_genero;
+
+-- --------------------------------------------------------------------
+
+-- Com filtro
+SELECT f.nm_filme, c.ds_censura, g.ds_genero
+FROM filme f
+	JOIN censura c ON f.cd_censura = c.cd_censura
+	JOIN genero g ON f.cd_genero = g.cd_genero
+WHERE f.dt_lancamento BETWEEN '2001-01-01' AND '2010-12-31';
+
+-- Com filtro
+SELECT f.nm_filme, c.ds_censura, g.ds_genero
+FROM filme f
+	JOIN censura c ON f.cd_censura = c.cd_censura
+	JOIN genero g ON f.cd_genero = g.cd_genero
+WHERE f.dt_lancamento BETWEEN '2001-01-01' AND '2010-12-31'
+	AND g.ds_genero = "Comédia";
+	
+-- --------------------------------------------------------------------
+
+-- Mostrar também atores e atrizes
+SELECT f.nm_filme, c.ds_censura, g.ds_genero, a.nm_ator
+FROM filme f
+	JOIN censura c ON f.cd_censura = c.cd_censura
+	JOIN genero g ON f.cd_genero = g.cd_genero
+	JOIN filme_ator fa ON f.cd_filme = fa.cd_filme
+	JOIN ator a ON fa.cd_ator = a.cd_ator;
+
+SELECT f.nm_filme, c.ds_censura, g.ds_genero, a.nm_ator
+FROM filme f
+	JOIN censura c ON f.cd_censura = c.cd_censura
+	JOIN genero g ON f.cd_genero = g.cd_genero
+	JOIN filme_ator fa ON f.cd_filme = fa.cd_filme
+	JOIN ator a ON fa.cd_ator = a.cd_ator
+WHERE a.nm_ator = "Didi";

@@ -62,13 +62,15 @@ SELECT col [AS alias], col2 ["alias 2"]
 FROM tabela
 [WHERE col = val || UPPER/LOWER(col) LIKE "COND%" || col IN(vlr1, vlr2) || col LIKE '%vlr_' || col IS [NOT] NULL || col BETWEEN vlr1 AND vlr2]
 [ORDER BY col/alias/posicaoColuna ASC/DESC,]
-[GROUP BY ,]
-[HAVING ];
+[HAVING condicao]
+[GROUP BY col,];
+
 
 -- JOINS
 SELECT *
 FROM tab1
 [INNER] JOIN tab2 ON tab1.col = tab2.col;
+|| WHERE tab1.col = tab2.col;
 
 SELECT *
 FROM tab1
@@ -80,4 +82,9 @@ LEFT JOIN tab2 ON tab1.col = tab2.col;
 
 SELECT *
 FROM tab1
-OUTER JOIN tab2 ON tab1.col = tab2.col;
+FULL OUTER JOIN tab2 ON tab1.col = tab2.col;
+
+
+-- Apelidando tabela
+SELECT *
+FROM tab1 [AS] t1;
