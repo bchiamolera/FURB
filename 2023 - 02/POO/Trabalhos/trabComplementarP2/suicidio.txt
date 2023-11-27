@@ -1,0 +1,4 @@
+Município com mais casos: 420910
+Qtd. Masculino: 312
+Qtd. Feminino: 74
+Maior qtd Estado Civil: Solteiro

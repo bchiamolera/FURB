@@ -1,4 +1,4 @@
--- Criando tabela
+-- CRIANDO TABELAS
 CREATE TABLE tabela (
 	coluna1 TIPO [restricao],
 	coluna2 TIPO,
@@ -61,9 +61,9 @@ SELECT * FROM tabela;
 SELECT col [AS alias], col2 ["alias 2"]
 FROM tabela
 [WHERE col = val || UPPER/LOWER(col) LIKE "COND%" || col IN(vlr1, vlr2) || col LIKE '%vlr_' || col IS [NOT] NULL || col BETWEEN vlr1 AND vlr2]
-[ORDER BY col/alias/posicaoColuna ASC/DESC]
-[HAVING condicao]
-[GROUP BY col];
+[GROUP BY col]
+[HAVING condicao_grupo]
+[ORDER BY col/alias/posicaoColuna ASC/DESC];
 
 -- % -> outros caracteres podem continuar / vir antes
 -- _ -> Caractere coringa
@@ -85,7 +85,30 @@ SELECT *
 FROM tab1
 FULL OUTER JOIN tab2 ON tab1.col = tab2.col;
 
-
 -- Apelidando tabela
 SELECT *
 FROM tab1 [AS] t1;
+
+-- FUNÇÕES DE GRUPO
+AVG(col)
+COUNT(col)
+MAX(col)
+MIN(col)
+SUM(col)
+
+-- SUBCONSULTAS
+SELECT *
+FROM tab1
+WHERE col IN -- (=)
+	(SELECT *
+	FROM tab2);
+SELECT *
+FROM tab1
+WHERE col < ANY
+	(SELECT *
+	FROM tab2);
+SELECT *
+FROM tab1
+WHERE col > ALL
+	(SELECT *
+	FROM tab2);
