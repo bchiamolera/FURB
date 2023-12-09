@@ -1,0 +1,8 @@
+Cidade com mais acidentes:
+Nome: Joinville
+Qtd. Acidentes Carro: 25
+Qtd. Acidentes Moto: 10
+Qtd. Acidentes Caminhão: 8
+
+Estado Civil com mais incidência: Casado
+Incidência: 76.74418604651163%

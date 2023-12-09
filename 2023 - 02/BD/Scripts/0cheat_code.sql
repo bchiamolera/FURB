@@ -101,14 +101,27 @@ SELECT *
 FROM tab1
 WHERE col IN -- (=)
 	(SELECT *
-	FROM tab2);
+	 FROM tab2);
 SELECT *
 FROM tab1
 WHERE col < ANY
 	(SELECT *
-	FROM tab2);
+	 FROM tab2);
 SELECT *
 FROM tab1
 WHERE col > ALL
 	(SELECT *
-	FROM tab2);
+	 FROM tab2);
+
+-- OPERADORES RELACIONAIS
+=
+>
+<
+>=
+<=
+<>
+
+-- OPERADORES CONJUNTOS
+IN 	--> Valores da subconsulta devem estar dentro da consulta
+ANY --> No mínimo um valor deve estar dentro da consulta (COMPARADO COM O OPERADOR 'OR')
+ALL --> Todos os valores devem estar dentro da consulta (COMPARADO COM O OPERADOR 'AND')

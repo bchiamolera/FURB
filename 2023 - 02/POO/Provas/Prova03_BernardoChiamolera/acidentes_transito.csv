@@ -1,0 +1,10 @@
+cidade;tipo_veiculo;numero_acidentes;estado_civil
+Florianópolis;carro;20;solteiro
+Florianópolis;moto;15;casado
+Florianópolis;caminhão;5;divorciado
+Joinville;carro;25;casado
+Joinville;moto;10;solteiro
+Joinville;caminhão;8;casado
+Blumenau;carro;18;solteiro
+Blumenau;moto;12;divorciado
+Blumenau;caminhão;7;casado
