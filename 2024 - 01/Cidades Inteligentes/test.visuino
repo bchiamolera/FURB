@@ -1,0 +1,279 @@
+{
+  "Config": {
+    "Build": {
+      "Board": "arduino:avr:uno"
+    }
+  },
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Content": "OpenWire Diagram",
+  "Units": [
+    {
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 832,
+          "Name": "Arduino",
+          "Instance": {
+            "Serial": {
+              "*": [
+                {
+                  "InputPin": {
+                    "SourcePins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.FormattedText1.OutputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoHardwareSerial"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "Modules": {
+              "*": [
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoWatchdogTimerModule"
+                },
+                {
+                  "+": "TArduinoProcessor328Module"
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "+": "TArduinoI2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "IsPullUp": true,
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "Name": "__OpenWireRootUnit__.Counter1.Reversed",
+                        "ID": "__OpenWireRootUnit__.Counter1.ReversedInputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoAdditionalDigitalInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "Arduino Uno R3"
+          },
+          "Type": "Component",
+          "Y": 288
+        },
+        {
+          "X": 608,
+          "Name": "FormattedText1",
+          "Instance": {
+            "ClockInputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.PulseGenerator1.OutputPin"
+                }
+              ]
+            },
+            "Text": "CONTADOR DEC: %0\r\nCONTADOR BIN: %1\r\nCONTADOR HEX: %2\r\n ",
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Serial[0].InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Serial._Item0.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoFormattedText",
+            "Elements": {
+              "*": [
+                {
+                  "Name": "DEC1",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Counter1.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoFormattedTextElementUnsigned",
+                  "Length": 8
+                },
+                {
+                  "Name": "BIN1",
+                  "Base": 2,
+                  "+": "TArduinoFormattedTextElementUnsigned",
+                  "FillCharacter": "0",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Counter1.OutputPin"
+                    }
+                  },
+                  "Length": 8
+                },
+                {
+                  "Name": "HEX1",
+                  "Base": 16,
+                  "+": "TArduinoFormattedTextElementUnsigned",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Counter1.OutputPin"
+                    }
+                  },
+                  "Length": 8
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 320
+        },
+        {
+          "X": 256,
+          "Name": "PulseGenerator1",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.FormattedText1.ClockInputPin"
+                },
+                {
+                  "ID": "__OpenWireRootUnit__.Counter1.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoPulseGenerator"
+          },
+          "Type": "Component",
+          "Y": 384
+        },
+        {
+          "X": 432,
+          "Name": "Counter1",
+          "Instance": {
+            "Max": {
+              "Value": 10
+            },
+            "Min": {
+              "Value": 0
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.FormattedText1.Elements.UnsignedElement.InputPin",
+                  "ID": "__OpenWireRootUnit__.FormattedText1.Elements._Item2.InputPin"
+                },
+                {
+                  "Name": "__OpenWireRootUnit__.FormattedText1.Elements.UnsignedElement.InputPin",
+                  "ID": "__OpenWireRootUnit__.FormattedText1.Elements._Item1.InputPin"
+                },
+                {
+                  "Name": "__OpenWireRootUnit__.FormattedText1.Elements.UnsignedElement.InputPin",
+                  "ID": "__OpenWireRootUnit__.FormattedText1.Elements._Item0.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoCounter",
+            "InputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.PulseGenerator1.OutputPin"
+                }
+              ]
+            },
+            "Reversed": true,
+            "@": [
+              {
+                "PinName": "Reversed",
+                "@": "Reversed",
+                "+": "TOWBooleanSinkPinBinding",
+                "SourcePin": {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital[ 2 ].OutputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item2.OutputPin"
+                },
+                "Component": "Counter1"
+              }
+            ]
+          },
+          "Type": "Component",
+          "Y": 256
+        }
+      ],
+      "Type": "Diagram",
+      "Selection": [
+        "FormattedText1",
+        "PulseGenerator1",
+        "Counter1"
+      ]
+    }
+  ]
+}
