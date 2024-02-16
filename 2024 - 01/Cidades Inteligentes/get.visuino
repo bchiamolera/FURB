@@ -1,0 +1,439 @@
+{
+  "Config": {
+    "Build": {
+      "Board": "arduino:avr:uno"
+    }
+  },
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Content": "OpenWire Diagram",
+  "Units": [
+    {
+      "Type": "Diagram",
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 1280,
+          "Name": "Arduino",
+          "Instance": {
+            "Serial": {
+              "*": [
+                {
+                  "InputPin": {
+                    "SourcePins": [
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Shields.Ethernet Shield.AddressOutputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Shields._Item0.AddressOutputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoHardwareSerial"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "Modules": {
+              "*": [
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoWatchdogTimerModule"
+                },
+                {
+                  "+": "TArduinoProcessor328Module"
+                }
+              ]
+            },
+            "Shields": {
+              "*": [
+                {
+                  "AddressOutputPin": {
+                    "SinkPins": [
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Serial[0].InputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Serial._Item0.InputPin"
+                      }
+                    ]
+                  },
+                  "Sockets": {
+                    "*": [
+                      {
+                        "Name": "TCP Client1",
+                        "InputPin": {
+                          "SourcePins": [
+                            {
+                              "ID": "__OpenWireRootUnit__.HTTPClient1.OutputPin"
+                            }
+                          ]
+                        },
+                        "+": "TArduinoEthernetTCPClientSocket",
+                        "Host": "api.thingspeak.com"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoEthernetShieldV2"
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "+": "TArduinoI2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.SRFlipFlop1.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAdditionalDigitalInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "Arduino Uno R3"
+          },
+          "Type": "Component",
+          "Y": 256
+        },
+        {
+          "X": 448,
+          "Name": "HTTPClient1",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Shields.Ethernet Shield.Sockets.TCP Client.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Shields._Item0.Sockets._Item0.InputPin"
+                }
+              ]
+            },
+            "UserAgent": "",
+            "+": "TArduinoNetworkProtocolsHTTPClient",
+            "Host": "api.thingspeak.com",
+            "Requests": {
+              "*": [
+                {
+                  "ClockInputPin": {
+                    "SourcePins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.PulseGenerator1.OutputPin"
+                      }
+                    ]
+                  },
+                  "ContentType": "application\/json",
+                  "+": "TArduinoNetworkProtocolsHTTPClientRequestGET",
+                  "URL": "\/channels\/2427963\/feeds.json?api_key=70SBTQEBB4DAG1WN&results=1",
+                  "Content": "",
+                  "Name": "GET1",
+                  "Connection": "keep-alive",
+                  "Response": {
+                    "ContentOutputPin": {
+                      "SinkPins": [
+                        {
+                          "ID": "__OpenWireRootUnit__.CharToText1.InputPin"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 1248
+        },
+        {
+          "X": 1056,
+          "Name": "SplitJSON1",
+          "Instance": {
+            "Elements": {
+              "*": [
+                {
+                  "Elements": {
+                    "*": [
+                      {
+                        "Elements": {
+                          "*": [
+                            {
+                              "Name": "created_at",
+                              "+": "TArduinoSplitJSONTextElement"
+                            },
+                            {
+                              "Name": "entry_id",
+                              "+": "TArduinoSplitJSONIntegerElement"
+                            },
+                            {
+                              "Name": "field3",
+                              "+": "TArduinoSplitJSONTextElement"
+                            }
+                          ]
+                        },
+                        "+": "TArduinoSplitJSONObjectArrayElement"
+                      }
+                    ]
+                  },
+                  "Name": "feeds",
+                  "+": "TArduinoSplitJSONArrayElement"
+                },
+                {
+                  "Elements": {
+                    "*": [
+                      {
+                        "Name": "description",
+                        "+": "TArduinoSplitJSONTextElement"
+                      },
+                      {
+                        "Name": "field2",
+                        "+": "TArduinoSplitJSONTextElement"
+                      },
+                      {
+                        "Name": "id",
+                        "+": "TArduinoSplitJSONIntegerElement"
+                      },
+                      {
+                        "Name": "updated_at",
+                        "+": "TArduinoSplitJSONTextElement"
+                      },
+                      {
+                        "Name": "latitude",
+                        "+": "TArduinoSplitJSONTextElement"
+                      },
+                      {
+                        "Name": "name",
+                        "+": "TArduinoSplitJSONTextElement"
+                      },
+                      {
+                        "Name": "longitude",
+                        "+": "TArduinoSplitJSONTextElement"
+                      },
+                      {
+                        "Name": "field1",
+                        "+": "TArduinoSplitJSONTextElement"
+                      },
+                      {
+                        "Name": "field3",
+                        "+": "TArduinoSplitJSONTextElement"
+                      },
+                      {
+                        "Name": "created_at",
+                        "+": "TArduinoSplitJSONTextElement"
+                      },
+                      {
+                        "Name": "last_entry_id",
+                        "+": "TArduinoSplitJSONIntegerElement"
+                      }
+                    ]
+                  },
+                  "Name": "channel",
+                  "+": "TArduinoSplitJSONObjectElement"
+                }
+              ]
+            },
+            "+": "TArduinoSplitJSON"
+          },
+          "Type": "Component",
+          "Y": 1216
+        },
+        {
+          "X": 256,
+          "Name": "PulseGenerator1",
+          "Instance": {
+            "Frequency": 0.100000001490116,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.HTTPClient1.Requests.GET.ClockInputPin",
+                  "ID": "__OpenWireRootUnit__.HTTPClient1.Requests._Item0.ClockInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoPulseGenerator"
+          },
+          "Type": "Component",
+          "Y": 1248
+        },
+        {
+          "X": 864,
+          "Name": "SRFlipFlop1",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital[ 2 ].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item2.DigitalInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoSRFlipFlop",
+            "SetInputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.CompareValue1.OutputPin"
+                }
+              ]
+            },
+            "ResetInputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.CompareValue2.OutputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 1648
+        },
+        {
+          "X": 704,
+          "Name": "CompareValue1",
+          "Instance": {
+            "Value": "1",
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.SRFlipFlop1.SetInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoTextCompareValue"
+          },
+          "Type": "Component",
+          "Y": 1632
+        },
+        {
+          "X": 704,
+          "Name": "CompareValue2",
+          "Instance": {
+            "Value": "0",
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.SRFlipFlop1.ResetInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoTextCompareValue"
+          },
+          "Type": "Component",
+          "Y": 1680
+        },
+        {
+          "X": 848,
+          "Name": "TextStartsWith1",
+          "Instance": {
+            "Text": "{",
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.CharToText1.OutputPin"
+              }
+            },
+            "+": "TArduinoTextStartsWith"
+          },
+          "Type": "Component",
+          "Y": 1248
+        },
+        {
+          "X": 656,
+          "Name": "CharToText1",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.TextStartsWith1.InputPin"
+                }
+              ]
+            },
+            "InputPin": {
+              "SourcePin": {
+                "Name": "__OpenWireRootUnit__.HTTPClient1.Requests.GET.Response.ContentOutputPin",
+                "ID": "__OpenWireRootUnit__.HTTPClient1.Requests._Item0.Response.ContentOutputPin"
+              }
+            },
+            "+": "TArduinoCharToText",
+            "MaxLength": 1000
+          },
+          "Type": "Component",
+          "Y": 1248
+        },
+        {
+          "X": 848,
+          "Name": "TextToggleSwitch1",
+          "Instance": {
+            "+": "TArduinoTextToggleSwitch"
+          },
+          "Type": "Component",
+          "Y": 1392
+        }
+      ]
+    }
+  ]
+}
