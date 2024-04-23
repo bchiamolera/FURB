@@ -1,0 +1,328 @@
+/* Feito Por Bernardo Chiamolera, Grégori Pintarelli e Ricardo Sasse */
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+:root {
+    font-size: 1vw;
+}
+
+@media screen and (max-width: 100vh) {
+    form #cadastroInputs1 { grid-template: auto auto auto auto auto auto / auto; }
+    form #cadastroInputs2 { grid-template: auto auto / auto; }
+    main section form input { font-size: 1.2em; }
+    main section form input:focus { font-size: 1.2em; }
+}
+
+html {
+    background-color: #333;
+    scroll-behavior: smooth;
+}
+
+header,
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+header {
+    font-size: clamp(1rem, 2.07vh, 2.25rem);
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625em 1.25em;
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+}
+
+header #logo {
+    height: 3.75em;
+}
+
+header div.user {
+    display: flex;
+    align-items: center;
+}
+
+header div.user img {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    margin-left: 0.625em;
+}
+
+main {
+    min-height: calc(100vh - clamp(1rem, 2.07vh, 2.25rem) * 8.75);
+    font-size: clamp(1rem, 2.07vh, 2rem);
+    background-color: #fff;
+    background-image: url('../img/pattern.png');
+    background-size: 28.125em;
+}
+
+main section {
+    padding: 1.25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer {
+    font-size: clamp(1rem, 2.07vh, 2.25rem);
+    padding: 0.625em 0;
+}
+
+footer p {
+    font-size: 0.8125em;
+}
+
+#cadastroInputs1 {
+    display: grid;
+    grid-template: auto auto auto / auto auto;
+}
+
+#cadastroInputs2 {
+    display: grid;
+    grid-template: auto / auto auto;
+}
+
+main form input {
+    font-size: 0.8125em;
+    margin: 0.625em;
+    padding: 0.625em;
+    width: 18.75em;
+    border: 0.1875em solid #aaa;
+    border-radius: 0.3125em;
+    transition: background-color 0.1s, border-color 0.1s;
+}
+
+main form input:focus {
+    font-size: 0.8125em;
+    background-color: #ddd;
+    border-color: #000;
+    outline: none;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+main form input[type="button"] {
+    padding: 0.625em 1.25em;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 0.3125em;
+    cursor: pointer;
+}
+
+main form input[type="button"]:hover {
+    background-color: #444;
+}
+
+main form input[type="reset"] {
+    margin: 0.625em;
+    padding: 0.625em 1.25em;
+    background-color: #fff;
+    color: #333;
+    border: #333 0.0625em solid;
+    border-radius: 0.3125em;
+    cursor: pointer;
+}
+
+main form input[type="reset"]:hover {
+    background-color: #ddd;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 1.5625em;
+    font-weight: bold;
+}
+
+header nav li a {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s;
+}
+
+header nav li a:hover {
+    font-size: 1.25em;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main section>h2 {
+    margin-bottom: 0.625em;
+}
+
+main div.lista {
+    color: #444b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: #333 0.1875em solid;
+    border-radius: 0.625em;
+    overflow: hidden;
+    min-width: 38.75em;
+    min-height: 6.875em;
+}
+
+div.filme,
+div.infoFilmeDiv,
+div.info1,
+div.info2 {
+    color: #000;
+    display: flex;
+}
+
+div.info1,
+div.info2 {
+    align-items: end;
+    overflow: hidden;
+}
+
+div.info1 p,
+div.info2 p {
+    min-width: 6em;
+}
+
+div.filme.bordado {
+    border-top: #333 0.1875em solid;
+}
+
+div.filme {
+    justify-content: space-between;
+    flex-shrink: 1;
+    padding: 0.625em;
+    width: 37.5em;
+    height: 12.5em;
+    background-color: #fff;
+}
+
+div.filme img {
+    width: 9.375em;
+    height: 12.5em;
+    margin-right: 0.625em;
+}
+
+div.info1 h3 {
+    font-size: 1.5em;
+    margin-right: 0.625em;
+}
+
+div.infoFilme h3,
+div.infoFilme p {
+    word-break: break-all;
+}
+
+div.info1 {
+    margin-bottom: 0.625em;
+}
+
+div.info2 {
+    margin-bottom: 0.625em;
+}
+
+div.info2 p:first-child {
+    padding-right: 1em;
+    margin-right: 1em;
+    border-right: 0.03125em solid #333;
+}
+
+div.infoFilmeDiv {
+    width: 35em;
+    flex-shrink: 1;
+    overflow: hidden;
+}
+
+div.infoFilme {
+    width: 23.25em;
+    overflow: auto;
+}
+
+div.infoFilme>p {
+    text-align: justify;
+    font-size: 0.8125em;
+    margin-right: 0.3125em;
+    word-break: break-all;
+    max-height: 10em;
+    overflow-y: auto;
+    padding-right: 0.25em;
+}
+
+div.filme div.botoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0.625em;
+}
+
+div.filme div.botoes button {
+    overflow: hidden;
+    padding: 0.3125em;
+    background-color: #fff;
+    color: #333;
+    border: #333 0.125em solid;
+    border-radius: 0.3125em;
+    cursor: pointer;
+    font-size: 1.5em;
+    height: 2em;
+    width: 2em;
+}
+
+div.filme div.botoes button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+section.sobre h3 {
+    margin: 0;
+    text-align: center;
+}
+
+section.sobre p {
+    width: 35em;
+    text-align: center;
+}

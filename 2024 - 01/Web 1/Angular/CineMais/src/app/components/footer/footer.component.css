@@ -1,0 +1,10 @@
+ mat-toolbar {
+    position: absolute;
+    bottom: 0;
+    justify-content: end;
+ }
+
+ p {
+    margin-right: 10px;
+    font-size: small;
+ }

@@ -1,0 +1,28 @@
+<h2>Seus Filmes</h2>
+
+<div *ngIf="moviesList.length == 0">
+    <p>Não há filmes cadastrados</p>
+</div>
+
+<div class="cards">
+    <div *ngFor="let movie of moviesList">
+        <mat-card class="movie-card">
+            <mat-card-header class="header">
+                <mat-card-title>{{ movie.title }}</mat-card-title>
+                <mat-card-subtitle>{{ movie.year }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image class="poster" [src]="movie.poster" (error)="handleImageError($event)" alt="Movie Poster">
+            <mat-card-content class="content">
+                <div class="movie-info">
+                    <p>{{ movie.director }}</p>
+                    <p>{{ getGenre(movie.genre) }}</p>
+                </div>
+                <p>{{ movie.sinopsis }}</p>
+            </mat-card-content>
+            <mat-card-actions class="btns">
+                <button mat-button color="warn" (click)="Delete(this.movie)">Deletar</button>
+                <button mat-button color="primary" (click)="Edit(this.movie)">Editar</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

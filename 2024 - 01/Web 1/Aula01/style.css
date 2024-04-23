@@ -1,0 +1,17 @@
+table, td, th {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0px 10px;
+    text-align: center;
+    margin: 0px;
+}
+
+.quadrado {
+    display: flex;
+    background-color: red;
+    height: 50px;
+    width: 50px;
+}

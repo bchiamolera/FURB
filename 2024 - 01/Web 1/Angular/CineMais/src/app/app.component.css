@@ -1,0 +1,26 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.icon-text {
+    display: flex;
+    align-items: space-between;
+}
+
+.icon-text span {
+    margin-left: 1rem;
+}
+
+.content {
+    text-align: center;
+    background-image: url('../assets/pattern.png');
+    background-size: 28.125rem;
+    height: 80vh;
+    overflow-y: scroll;
+    padding: 0 1rem;
+}

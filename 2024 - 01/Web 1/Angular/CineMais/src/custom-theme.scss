@@ -1,0 +1,117 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+$custome-primary: (
+  50: #ffffff,  /* Branco claro */
+  100: #e4e2e1,  /* Branco */
+  200: #c8c6c6,  /* Cinza claro */
+  300: #acabaa,  /* Cinza mais claro */
+  400: #787777,  /* Cinza médio */
+  500: #5f5e5e,  /* Cinza escuro */
+  600: #474747,  /* Cinza bem escuro */
+  700: #303030,  /* Preto escuro */
+  800: #1b1c1c,  /* Preto */
+  900: #000000,  /* Preto escuro */
+  A100: #ffffff, /* Branco */
+  A200: #ffffff, /* Branco */
+  A400: #ffffff, /* Branco */
+  A700: #ffffff, /* Branco */
+  contrast: (
+    50: #000, /* Preto */
+    100: #000, /* Preto */
+    200: #000, /* Preto */
+    300: #fff, /* Branco */
+    400: #fff, /* Branco */
+    500: #fff, /* Branco */
+    600: #fff, /* Branco */
+  )
+);
+
+$custome-accent: (
+  50: #fafafa,  /* Branco claro */
+  100: #f5f5f5,  /* Branco */
+  200: #eeeeee,  /* Cinza claro */
+  300: #e0e0e0,  /* Cinza mais claro */
+  400: #bdbdbd,  /* Cinza médio */
+  500: #9e9e9e,  /* Cinza escuro */
+  600: #757575,  /* Cinza bem escuro */
+  700: #616161,  /* Preto escuro */
+  800: #424242,  /* Preto */
+  900: #212121,  /* Preto escuro */
+  A100: #ffffff, /* Branco */
+  A200: #ffffff, /* Branco */
+  A400: #ffffff, /* Branco */
+  A700: #ffffff, /* Branco */
+  contrast: (
+    50: #000, /* Preto */
+    100: #000, /* Preto */
+    200: #000, /* Preto */
+    300: #fff, /* Branco */
+    400: #fff, /* Branco */
+    500: #fff, /* Branco */
+    600: #fff, /* Branco */
+  )
+);
+
+$custome-warn: (
+  50: #ffdad6,  /* Vermelho claro */
+  100: #ffb4ab,  /* Vermelho claro */
+  200: #ff897d,  /* Vermelho mais claro */
+  300: #ff5449,  /* Vermelho */
+  400: #de3730,  /* Vermelho escuro */
+  500: #ba1a1a,  /* Vermelho bem escuro */
+  600: #93000a,  /* Vermelho escuro */
+  700: #690003,  /* Vermelho profundo */
+  800: #410002,  /* Vermelho profundo */
+  900: #000000,  /* Vermelho escuro */
+  A100: #ffffff, /* Branco */
+  A200: #ffffff, /* Branco */
+  A400: #ffffff, /* Branco */
+  A700: #ffffff, /* Branco */
+  contrast: (
+    50: #000, /* Preto */
+    100: #000, /* Preto */
+    200: #000, /* Preto */
+    300: #fff, /* Branco */
+    400: #fff, /* Branco */
+    500: #fff, /* Branco */
+    600: #fff, /* Branco */
+  )
+);
+
+
+$CineMais-primary: mat.define-palette($custome-primary);
+$CineMais-accent: mat.define-palette($custome-accent, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$CineMais-warn: mat.define-palette($custome-warn);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$CineMais-theme: mat.define-light-theme((
+  color: (
+    primary: $CineMais-primary,
+    accent: $CineMais-accent,
+    warn: $CineMais-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($CineMais-theme);
+

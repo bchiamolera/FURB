@@ -1,0 +1,41 @@
+.movie-card {
+    max-width: 250px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    text-align: justify;
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.poster {
+    width: 200px;
+    height: 300px;
+}

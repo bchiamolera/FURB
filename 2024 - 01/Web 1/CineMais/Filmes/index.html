@@ -1,0 +1,71 @@
+<!-- Feito Por Bernardo Chiamolera, Grégori Pintarelli e Ricardo Sasse -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine+</title>
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id = "header">
+        <div class="logo">
+            <a href="./">
+                <img src="..\img\CINE+_transparente.png" alt="Cine+" id="logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a onclick="scrollCadastro()">Cadastrar Filmes</a></li>
+                <li><a onclick="scrollLista()">Seus Filmes</a></li>
+                <li><a onclick="scrollSobre()">Sobre</a></li>
+            </ul>
+        </nav>
+        <div class="user">
+            <p>Averildo da Silva</p>
+            <a href="../">
+                <img src="..\img\averildo.png" alt="Sua foto">
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="filmeCadastro" id="filmeCadastro">
+            <form action="" id="formCadastro">
+                <h2>Cadastrar</h2>
+                <div id="cadastroInputs1">
+                    <input type="text" name="titulo" id="titulo" placeholder="Título" title="Título">
+                    <input type="text" name="diretor" id="diretor" placeholder="Diretor" title="Diretor">
+                    <input type="text" name="genero" id="genero" placeholder="Gênero" title="Gênero">
+                    <input type="number" name="ano" id="ano" min="1895" placeholder="Ano" title="Ano">
+                    <input type="text" name="sinopse" id="sinopse" placeholder="Sinopse" title="Sinopse">
+                    <input type="text" name="imagem" id="imagem" placeholder="Poster" title="Poster">
+                </div>
+                <div id="cadastroInputs2">
+                    <input type="button" value="Cadastrar" id="cadastro" onclick="verificarCampos()">
+                    <input type="reset" value="Limpar">
+                </div>
+            </form>
+        </section>
+        <section class="filmeLista" id="filmes">
+            <h2>Seus Filmes</h2>
+            <div class="lista" id="listaFilmes">
+                <!-- Filmes -->
+            </div>
+        </section>
+        <section class="sobre">
+            <h2>Sobre</h2>
+            <p>
+                O Cine+ é um site utilizado para que você possa gerenciar seus filmes favoritos, criando uma lista
+                organizada de quais filmes você quiser.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>Todos os direitos reservados. Cine+ © 2024</p>
+        <p>Desenvolvido por: Bernardo Chiamolera, Grégori Pintarelli e Ricardo Sasse.</p>
+    </footer>
+</body>
+</html>
