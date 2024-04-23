@@ -1,5 +1,6 @@
 .movie-card {
-    max-width: 250px;
+    max-width: 200px;
+    
 }
 
 .cards {
@@ -38,4 +39,10 @@
 .poster {
     width: 200px;
     height: 300px;
+}
+
+.sinopsis {
+    max-width: 300px;
+    overflow-y: auto;
+    white-space: pre-wrap;
 }

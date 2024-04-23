@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Pesquisar informações por CEP</h1>
+    <input type="text" id="cepInput" placeholder="Informe um CEP">
+    <button onclick="buscarInfo()">Buscar</button>
+    <hr>
+    <h1>Pesquisar o CEP por informações</h1>
+    <input type="text" id="ufInput" placeholder="Informe a UF">
+    <input type="text" id="localidadeInput" placeholder="Informe a localidade">
+    <input type="text" id="logradouroInput" placeholder="Informe o logradouro">
+    <button onclick="buscarCep()">Buscar</button>
+    <hr>
+    <div id="cepResult">
+        <p><b>CEP:</b> <span id="cep"></span></p>
+        <p><b>Logradouro:</b> <span id="logradouro"></span></p>
+        <p><b>Bairro:</b> <span id="bairro"></span></p>
+        <p><b>Localidade:</b> <span id="localidade"></span></p>
+        <p><b>UF:</b> <span id="uf"></span></p>
+        <p><b>IBGE:</b> <span id="ibge"></span></p>
+        <p><b>GIA:</b> <span id="gia"></span></p>
+        <p><b>DDD:</b> <span id="ddd"></span></p>
+        <p><b>SIAFI:</b> <span id="siafi"></span></p>
+    </div>
+</body>
+</html>

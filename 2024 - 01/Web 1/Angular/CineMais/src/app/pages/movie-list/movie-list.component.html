@@ -17,7 +17,7 @@
                     <p>{{ movie.director }}</p>
                     <p>{{ getGenre(movie.genre) }}</p>
                 </div>
-                <p>{{ movie.sinopsis }}</p>
+                <p class="sinopsis">{{ movie.sinopsis }}</p>
             </mat-card-content>
             <mat-card-actions class="btns">
                 <button mat-button color="warn" (click)="Delete(this.movie)">Deletar</button>
