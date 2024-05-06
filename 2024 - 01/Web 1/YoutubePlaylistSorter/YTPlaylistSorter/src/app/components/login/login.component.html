@@ -1,0 +1,10 @@
+<p>login works!</p>
+
+<div *ngIf="!loggedIn">
+    <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
+</div>
+<div *ngIf="loggedIn">
+    <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" (click)="logOut()">
+        <mat-icon>logout</mat-icon>
+    </button>
+</div>
