@@ -35,5 +35,10 @@ export class DashboardComponent implements OnInit {
     this.authService.signOut();
   }
 
+  createPlaylist() {
+    this.youtubeService.createPlaylist('Teste').then(data => {
+      console.log(data);
+    });
+  }
 
 }

@@ -1,0 +1,46 @@
+<div *ngIf="!isLoading; else loading">
+
+    <div style="display: flex; flex-direction: row; justify-content: space-between;">
+        <h2 mat-dialog-title style="max-width: 75%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            {{playlist.snippet.title}}
+        </h2>
+        <mat-dialog-actions align="end" style="margin-right: 0.5rem;">
+            <button mat-button color="primary" (click)="reorganizeAndUpdatePlaylist()" id="reorganize-button">Organize</button>
+        </mat-dialog-actions>
+    </div>
+    
+    <mat-dialog-content style="margin-bottom: 1rem;">
+    
+        <div style="text-align: justify;">
+            <h3>{{playlist.snippet.description}}</h3>
+        </div>
+    
+        <mat-list *ngIf="playlistItems.length > 0; else isEmpty" role="list">
+            <div *ngFor="let video of playlistItems">
+    
+                <mat-list-item role="listitem" style="height: fit-content; margin: 1rem;">
+    
+                    <div style="display: flex; flex-direction: row;">
+                        <img src="{{video.snippet.thumbnails.medium.url}}" alt="Capa" style="width: 160px; height: 90px; margin-right: 1rem;">
+                        <div>
+                            <h2 style="margin-bottom: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{video.snippet.title}}</h2>
+                            <p style="margin-top: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{video.snippet.videoOwnerChannelTitle}}</p>
+                        </div>
+                    </div>
+    
+                </mat-list-item>
+    
+            </div>
+        </mat-list>
+
+        <ng-template #isEmpty>
+            <h2>Você ainda não possui nenhum vídeo nessa playlist</h2>
+        </ng-template>
+
+    </mat-dialog-content>
+
+</div>
+
+<ng-template #loading>
+    <mat-spinner style="margin: 5rem auto"></mat-spinner>
+</ng-template>

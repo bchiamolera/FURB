@@ -1,0 +1,47 @@
+<div *ngIf="!isLoading; else loading">
+
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+
+        <h1 style="margin: 1rem;">
+            Suas Playlists
+        </h1>
+
+        <div *ngIf="playlists.length > 0; else isEmpty" style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center;">
+    
+                <mat-card *ngFor="let playlist of playlists" style="margin: 16px; width: fit-content;">
+                    <mat-card-header>
+                        <mat-card-title style="max-width: 288px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            {{ playlist.snippet.title }}
+                        </mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image src="{{ playlist.snippet.thumbnails.medium.url }}" alt=""
+                        style="width: 320px; height: 180px;">
+                    <mat-card-actions align="end">
+                        <button mat-flat-button color="warn" style="margin-right: 10px;" (click)="deletePlaylist(playlist.id)">
+                            Deletar
+                        </button>
+                        <button mat-flat-button color="primary" (click)="openDialog(playlist.id)">
+                            Editar
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+        </div>
+    
+        <ng-template #isEmpty>
+            <h2>Você ainda não possui nenhuma playlist</h2>
+        </ng-template>
+
+    </div>
+
+    <button mat-fab color="primary" (click)="createPlaylist()" style="position: fixed; bottom: 30px; right: 30px;"
+        id="create-playlist-button">
+        <mat-icon>add</mat-icon>
+    </button>
+
+</div>
+
+<ng-template #loading>
+    <div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+        <mat-spinner style="margin: auto;"></mat-spinner>
+    </div>
+</ng-template>

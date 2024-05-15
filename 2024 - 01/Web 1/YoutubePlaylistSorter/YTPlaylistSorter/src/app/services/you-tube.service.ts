@@ -32,6 +32,26 @@ export class YouTubeService {
   
 
     async createPlaylist(nome: string) {
+      const url = `https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus`;
+      const body = {
+        "snippet": {
+          "title": nome,
+          "description": "A private playlist created with the YouTube API"
+        },
+        "status": {
+          "privacyStatus": "private"
+        }
+      }
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.accessToken}`
+        },
+        body: JSON.stringify(body)
+      });
+      const data = await response.json();
+      return data;
     }
   
     // Delete playlist from Youtube
