@@ -107,8 +107,4 @@ export class PlaylistDialogComponent {
     return organizedVideos;
   }
 
-  updatePlaylistTitle(title: string): void {
-    this.ytService.updatePlaylistTitle(this.id.id, title);
-  }
-
 }
