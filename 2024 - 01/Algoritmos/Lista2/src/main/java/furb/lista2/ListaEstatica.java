@@ -100,8 +100,8 @@ public class ListaEstatica<T> {
         int lastIndex = tamanho - 1;
         
         for (int i = 0; i < lastIndex; i++) {
-            lastItem = (T) this.info[lastIndex];
-            this.info[lastIndex] = this.info[i];
+            lastItem = obterElemento(lastIndex);
+            this.info[lastIndex] = obterElemento(i);
             this.info[i] = lastItem;
             lastIndex--;
         }
