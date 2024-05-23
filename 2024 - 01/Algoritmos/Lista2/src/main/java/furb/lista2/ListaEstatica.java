@@ -16,8 +16,7 @@ public class ListaEstatica<T> {
     }
     
     private void redimensionar() {
-       Object[] tempLista = this.info;
-        
+       T[] tempLista = (T[]) this.info;
        this.info = (T[]) new Object[this.info.length + 10];
         
         for (int i = 0; i < tempLista.length; i++) {
@@ -36,14 +35,14 @@ public class ListaEstatica<T> {
     public void exibir() {
         String retorno = "";
         for (int i = 0; i < this.tamanho; i++) {
-            retorno += this.info[i] + "\n";
+            retorno += this.info[i] + " ";
         }
         System.out.println(retorno);
     }
     
     public int buscar(T valor) {
         for (int i = 0; i < this.tamanho; i++) {
-            if (this.info[i] == valor) {
+            if (this.info[i].equals(valor)) {
                 return i;
             }
         }
@@ -75,12 +74,7 @@ public class ListaEstatica<T> {
     }
     
     public boolean estaVazia() {
-        for (int i = 0; i < this.tamanho; i++) {
-            if (this.info[i] != null) {
-                return false;
-            }
-        }
-        return true;
+        return tamanho == 0;
     }
     
     public int getTamanho() {
