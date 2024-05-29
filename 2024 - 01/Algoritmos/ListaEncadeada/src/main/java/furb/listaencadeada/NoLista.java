@@ -24,5 +24,4 @@ public class NoLista<T> {
         this.proximo = proximo;
     }
     
-    
 }
