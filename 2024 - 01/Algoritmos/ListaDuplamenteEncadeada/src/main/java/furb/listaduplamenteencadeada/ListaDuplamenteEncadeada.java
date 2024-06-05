@@ -21,7 +21,7 @@ public class ListaDuplamenteEncadeada<T> {
         return primeiro;
     }
     
-    public void inserir(T valor) {
+    public void inserir(T valor) {        
         NoListaDupla<T> novoNo = new NoListaDupla<>();
         novoNo.setInfo(valor);
         novoNo.setProximo(primeiro);

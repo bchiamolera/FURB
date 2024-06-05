@@ -19,7 +19,6 @@ public class ListaEncadeada<T> {
         novoNo.setInfo(info);
         if (primeiro != null) {
             novoNo.setProximo(primeiro);
-            
         }
         this.primeiro = novoNo;
     }
