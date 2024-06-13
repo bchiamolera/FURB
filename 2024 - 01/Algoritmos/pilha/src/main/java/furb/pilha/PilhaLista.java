@@ -8,33 +8,33 @@ package furb.pilha;
  *
  * @author Bernardo Chiamolera
  */
-public class PilhaLista<T> implements Pilha{
+public class PilhaLista<T> implements Pilha<T> {
     
-    private ListaEncadeada listaPilha;
+    private ListaEncadeada<T> listaPilha;
 
     public PilhaLista() {
         this.listaPilha = new ListaEncadeada();
     }
 
     @Override
-    public void push(Object info) throws PilhaCheiaException {
+    public void push(T info) throws PilhaCheiaException {
         this.listaPilha.inserir(info);
     }
 
     @Override
-    public Object pop() throws PilhaVaziaException {
+    public T pop() throws PilhaVaziaException {
         if (listaPilha.estaVazia()) {
             throw new PilhaVaziaException();
         }
         
-        Object valor = peek();
+        T valor = peek();
         this.listaPilha.retirar(valor);
         
         return valor;
     }
 
     @Override
-    public Object peek() throws PilhaVaziaException {
+    public T peek() throws PilhaVaziaException {
         if (listaPilha.estaVazia()) {
             throw new PilhaVaziaException();
         }
@@ -47,14 +47,14 @@ public class PilhaLista<T> implements Pilha{
     }
 
     @Override
-    public void liberar() {
-        try {
-            while (!this.estaVazia()) {
-                this.pop();
-            }
-        } catch (Exception e) {
-            
+    public void liberar() throws PilhaVaziaException {
+        while (!this.estaVazia()) {
+            this.pop();
         }
+    }
+    
+    public ListaEncadeada<T> getLista() {
+        return this.listaPilha;
     }
     
 }

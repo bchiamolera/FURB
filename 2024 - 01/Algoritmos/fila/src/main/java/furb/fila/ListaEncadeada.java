@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package furb.pilha;
+package furb.fila;
 
 /**
  *
@@ -10,13 +10,19 @@ package furb.pilha;
  */
 public class ListaEncadeada<T> {
     private NoLista<T> primeiro;
+    private NoLista<T> ultimo;
 
     public ListaEncadeada() {
         primeiro = null;
+        ultimo = null;
     }
 
     public NoLista<T> getPrimeiro() {
         return primeiro;
+    }
+    
+    public NoLista<T> getUltimo() {
+        return ultimo;
     }
 
     public void inserir(T info) {
@@ -106,5 +112,19 @@ public class ListaEncadeada<T> {
             }
         }        
         return r;
-    }   
+    }
+    
+    public void inserirNoFinal(T valor) {
+        NoLista novoNo = new NoLista();
+        novoNo.setInfo(valor);
+        novoNo.setProximo(null);
+        
+        if (this.estaVazia()) {
+            this.primeiro = novoNo;
+        }
+        else {
+            this.ultimo.setProximo(novoNo);
+        }
+        this.ultimo = novoNo;
+    }
 }

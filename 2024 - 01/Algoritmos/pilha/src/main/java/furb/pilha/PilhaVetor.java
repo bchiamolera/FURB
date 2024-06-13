@@ -8,36 +8,36 @@ package furb.pilha;
  *
  * @author Bernardo Chiamolera
  */
-public class PilhaVetor<T> implements Pilha {
+public class PilhaVetor<T> implements Pilha<T> {
     
-    private Object[] info;
+    private T[] info;
     private int limite;
     private int tamanho;
 
     public PilhaVetor(int limite) {
         this.limite = limite;
-        this.info = new Object[limite];
+        this.info = (T[]) new Object[limite];
         this.tamanho = 0;
     }
 
     @Override
-    public void push(Object info) throws PilhaCheiaException {
+    public void push(T info) throws PilhaCheiaException {
         if (tamanho >= limite) {
             throw new PilhaCheiaException();
         }
 
-        this.info[tamanho] = (T) info;
+        this.info[tamanho] = info;
         tamanho++;
         
     }
 
     @Override
-    public Object pop() throws PilhaVaziaException {
+    public T pop() throws PilhaVaziaException {
         if (tamanho == 0) {
             throw new PilhaVaziaException();
         }
         
-        T valor = (T) peek();
+        T valor = peek();
         this.info[tamanho - 1] = null;
         tamanho--;
         
@@ -45,12 +45,12 @@ public class PilhaVetor<T> implements Pilha {
     }
 
     @Override
-    public Object peek() throws PilhaVaziaException {
+    public T peek() throws PilhaVaziaException {
         if (tamanho == 0) {
             throw new PilhaVaziaException();
         }
         
-        return (T) this.info[tamanho - 1];
+        return this.info[tamanho - 1];
     }
 
     @Override
@@ -60,9 +60,7 @@ public class PilhaVetor<T> implements Pilha {
 
     @Override
     public void liberar() {
-        for (int i = 0; i < this.tamanho; i++) {
-            this.info[i] = null;
-        }
+        this.info =(T[]) new Object[limite];
         tamanho = 0;
     }
     
@@ -93,7 +91,7 @@ public class PilhaVetor<T> implements Pilha {
             temp.push(p.pop());
         }
         while (!temp.estaVazia()) {
-            this.push(temp.pop());
+            this.push((T) temp.pop());
         }
     };
     
