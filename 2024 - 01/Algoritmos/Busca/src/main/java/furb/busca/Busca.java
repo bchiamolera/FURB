@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 
-package furb.mavenproject1;
+package furb.busca;
 
 /**
  *
  * @author Bernardo Chiamolera
  */
-public class Mavenproject1 {
+public class Busca {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
