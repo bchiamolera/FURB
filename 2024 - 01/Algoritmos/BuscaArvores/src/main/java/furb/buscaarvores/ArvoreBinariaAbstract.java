@@ -1,23 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
- */
-
-package furb.arvorebinaria;
+package furb.buscaarvores;
 
 /**
  *
  * @author Bernardo Chiamolera
  */
-public class ArvoreBinaria<T> {
+public abstract class ArvoreBinariaAbstract<T> {
     private NoArvoreBinaria<T> raiz;
     
-    public ArvoreBinaria() {
+    public ArvoreBinariaAbstract() {
         this.raiz = null;
     }
     
-    public void setRaiz(NoArvoreBinaria<T> raiz) {
+    protected void setRaiz(NoArvoreBinaria<T> raiz) {
         this.raiz = raiz;
+    }
+    
+    public NoArvoreBinaria<T> getRaiz() {
+        return this.raiz;
     }
     
     public boolean estaVazia() {
@@ -25,7 +24,7 @@ public class ArvoreBinaria<T> {
     }
     
     public boolean pertence(T info) {
-        return pertence(raiz, info);
+        return buscar(info).equals(null);
     }
     
     private boolean pertence(NoArvoreBinaria<T> no, T info) {
@@ -35,16 +34,18 @@ public class ArvoreBinaria<T> {
         return no.getInfo() == info || pertence(no.getEsquerda(), info) || pertence(no.getDireita(), info);
     }
     
-    @Override
-    public String toString() {
-        return arvorePre(raiz);
-    }
+    public abstract NoArvoreBinaria<T> buscar(T info);
     
     private String arvorePre(NoArvoreBinaria<T> no) {
         if (no == null) {
             return "<>";
         }
         return "<" + no.getInfo().toString() + arvorePre(no.getEsquerda()) + arvorePre(no.getDireita()) + ">";
+    }
+    
+    @Override
+    public String toString() {
+        return arvorePre(raiz);
     }
     
     public int contarNos() {

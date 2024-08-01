@@ -136,7 +136,7 @@ public class ArvoreBinariaTest {
     }
     
     @Test
-    public void testContar() {
+    public void testContarNos() {
         ArvoreBinaria arvore = new ArvoreBinaria();
         
         NoArvoreBinaria no6 = new NoArvoreBinaria(6);
@@ -150,6 +150,25 @@ public class ArvoreBinariaTest {
         
         int expected = 6;
         int actual = arvore.contarNos();
+        
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+    public void testContarFolhas() {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        
+        NoArvoreBinaria no6 = new NoArvoreBinaria(6);
+        NoArvoreBinaria no5 = new NoArvoreBinaria(5);
+        NoArvoreBinaria no4 = new NoArvoreBinaria(4);
+        NoArvoreBinaria no3 = new NoArvoreBinaria(3, no5, no6);
+        NoArvoreBinaria no2 = new NoArvoreBinaria(2, null, no4);
+        NoArvoreBinaria noRaiz = new NoArvoreBinaria(1, no2, no3);
+        
+        arvore.setRaiz(noRaiz);
+        
+        int expected = 3;
+        int actual = arvore.contarFolhas(noRaiz);
         
         assertEquals(expected, actual);
     }

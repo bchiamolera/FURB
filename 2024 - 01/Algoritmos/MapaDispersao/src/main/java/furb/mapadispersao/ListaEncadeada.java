@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package furb.mapadispersao;
 
 /**
@@ -12,6 +8,7 @@ public class ListaEncadeada<T> {
     private NoLista<T> primeiro;
 
     public ListaEncadeada() {
+        this.primeiro = null;
     }
 
     public NoLista<T> getPrimeiro() {
@@ -35,7 +32,7 @@ public class ListaEncadeada<T> {
         if (!estaVazia()) {
             NoLista<T> currentNo = primeiro;
             while (!currentNo.getInfo().equals(info) && currentNo.getProximo() != null) {
-            currentNo = currentNo.getProximo();
+                currentNo = currentNo.getProximo();
             }
             if (!currentNo.getInfo().equals(info)) {
                 return null;
@@ -53,7 +50,6 @@ public class ListaEncadeada<T> {
                 primeiro = removedNo.getProximo();
             } else {
                 NoLista<T> currentNo = primeiro;
-
                 while(currentNo.getProximo() != removedNo && currentNo.getProximo() != null) {
                     currentNo = currentNo.getProximo();
                 }
@@ -74,7 +70,6 @@ public class ListaEncadeada<T> {
                 comprimento++;
             }
         }
-        
         return comprimento;
     }
     

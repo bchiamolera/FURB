@@ -145,4 +145,36 @@ public class FilaVetorTest {
         assertEquals(expected4, actual4);
     }
     
+    @Test
+    public void testEncolher() throws Exception {
+        FilaVetor fila = new FilaVetor(10);
+        
+        fila.inserir("X");
+        fila.inserir("Y");
+        fila.inserir("Z");
+        fila.inserir("A");
+        fila.inserir("B");
+        fila.inserir("C");
+        fila.inserir("D");
+        
+        fila.retirar();
+        fila.retirar();
+        fila.retirar();
+        
+        fila.encolher();
+        
+        String expected = "A,B,C,D";
+        String actual = fila.toString();
+        
+        int expected2 = 4;
+        int actual2 = fila.getLimite();
+        
+        int expected3 = 4;
+        int actual3 = fila.getTamanho();
+        
+        assertEquals(expected, actual);
+        assertEquals(expected2, actual2);
+        assertEquals(expected3, actual3);
+    }
+    
 }

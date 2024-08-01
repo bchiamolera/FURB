@@ -85,11 +85,13 @@ public class FilaVetor<T> implements Fila<T> {
     public String toString() {
         String ret = "";
         for (int i = 0; i < this.tamanho; i++) {
-            if (i + 1 == this.tamanho) {
-                ret += this.info[i];
-            }
-            else {
-                ret += this.info[i] + ",";
+            if (this.info[i] != null) {
+                if (i + 1 == this.tamanho) {
+                    ret += this.info[i];
+                }
+                else {
+                    ret += this.info[i] + ",";
+                }
             }
         }
         return ret;
@@ -101,5 +103,25 @@ public class FilaVetor<T> implements Fila<T> {
     
     public int getTamanho() {
         return this.tamanho;
+    }
+    
+    public void encolher() {
+        // Cria-se um vetor para armazernar os dados preenchidos na info
+        // e um index para salvar a sua última posição não preenchida (0 no momento)
+        T[] novoVetor = (T[]) new Object[this.tamanho];
+        int vetorIndex = 0;
+        
+        // Percorre info; Se houver um dado, copia-o para o novo vetor e aumenta o valor de seu index
+        for (int i = 0; i < limite; i++) {
+            if (this.info[i] != null) {
+                novoVetor[vetorIndex] = this.info[i];
+                vetorIndex++;
+            }
+        }
+        
+        // Define info como o novo vetor e altera os atributos da fila
+        this.info = novoVetor;
+        this.inicio = 0;
+        this.limite = novoVetor.length;
     }
 }

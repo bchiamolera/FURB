@@ -20,7 +20,7 @@ public class Ordenador<T> {
     public void bubbleSort() {
         for (int i = info.length - 1; i > 0; i--) {
             for (int j = 0; j < info.length - 1; j++) {
-                if ((float) info[j] > (float) info[j +1]) {
+                if ((float) info[j] > (float) info[j + 1]) {
                     trocar(j, j + 1);
                 }
             }

@@ -1,21 +1,31 @@
-package furb.lista2;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package furb.buscas;
 
 /**
  *
  * @author Bernardo Chiamolera
- * @param <T>
  */
-public class ListaEstatica<T> {
-    
-    private Object[] info;
+public abstract class ListaAbstract<T> {
+    private T[] info;
     private int tamanho;
-
-    public ListaEstatica() {
+    
+    public ListaAbstract() {
         this.info = (T[]) new Object[10];
         this.tamanho = 0;
     }
     
-    private void redimensionar() {
+    public int getTamanho() {
+        return this.tamanho;
+    }
+    
+    protected void setTamanho(int tamanho) {
+        this.tamanho = tamanho;
+    }
+    
+    protected void redimensionar() {
        T[] tempLista = (T[]) this.info;
        this.info = (T[]) new Object[this.info.length + 10];
         
@@ -24,13 +34,11 @@ public class ListaEstatica<T> {
         }
     }
     
-    public void inserir(T valor) {
-        this.tamanho++;
-        if (this.tamanho > this.info.length) {
-            redimensionar();
-        }
-        this.info[tamanho - 1] = valor;
+    protected T[] getInfo() {
+        return this.info;
     }
+    
+    public abstract void inserir(T valor);
     
     public void exibir() {
         String retorno = "";
@@ -40,14 +48,7 @@ public class ListaEstatica<T> {
         System.out.println(retorno);
     }
     
-    public int buscar(T valor) {
-        for (int i = 0; i < this.tamanho; i++) {
-            if (this.info[i].equals(valor)) {
-                return i;
-            }
-        }
-        return -1;
-    }
+    public abstract int buscar(T valor);
     
     public void retirar (T valor) {
         
@@ -73,14 +74,6 @@ public class ListaEstatica<T> {
         
     }
     
-    public boolean estaVazia() {
-        return tamanho == 0;
-    }
-    
-    public int getTamanho() {
-        return this.tamanho;
-    }
-    
     @Override
     public String toString() {
         String retorno = "";
@@ -93,6 +86,10 @@ public class ListaEstatica<T> {
             }
         }
         return retorno;
+    }
+    
+    public boolean estaVazia() {
+        return tamanho == 0;
     }
     
     public void inverter() {
